@@ -15,7 +15,7 @@
 
 <div class="wrapper">
   <!-- SIGNUP -->
-    <form class="form-signin" method = "POST">
+    <form class="form-signin" method = "POST" action = "/assets/php/register.php">
       <h2 class="form-signin-heading">sign up</h2>
           <input type="text" class="form-control" name="username" placeholder="Username" required autofocus />
           <input type="password" class="form-control" name="password" placeholder="Password" required />
