@@ -79,8 +79,8 @@ closeCon($conn);
         <div class="container_info">
             <form action="process.php" class="container_info">
                 <div>
-                    <label class="Name"> Nom du produit
-                        <input type="text" name = "name" />
+                    <label class="name"> Nom du produit
+                        <input type="text" name = "name" class = "name_input"/>
                     </label>
                 </div>
 
@@ -126,9 +126,18 @@ closeCon($conn);
                             </label>
                         </label>
                     </div>
+
+                </div>
+                <div>
+                    <label class = "description"> Description
+                        <input type="text" class = "description_input" name = "description">
+                    </label>
                 </div>
 
-                <input type="submit" value="Submit Page" />
+                <div class="wrap">
+                    <input type="submit" value="Submit Page" class = " button" />
+                </div>
+                
             </form>
         </div>
     </div>
