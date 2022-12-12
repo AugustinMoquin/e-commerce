@@ -1,0 +1,170 @@
+body {
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    margin: 0px;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    background-image: url("../ajout_produit_images/pepe.jpg");
+    position: absolute;
+}
+
+header {
+    height: 5rem;
+    width: 100vw;
+    background-color: rgb(164, 190, 123);
+    position: relative;
+}
+
+.Title {
+    width: 100vw;
+    text-align: center;
+}
+
+.container_all {
+    width: auto;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(229, 217, 182);
+    display: flex;
+    padding: 3rem;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-image: initial;
+    border-radius: 10px;
+    gap: 3rem;
+}
+
+.image_container {
+    height: 20rem;
+    width: 20rem;
+    background-color: whitesmoke;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-image: initial;
+    border-radius: 10px;
+}
+
+.container_insertImage_Image {
+    height: 20rem;
+    width: 20rem;
+}
+
+.container_info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.name {
+    display: flex;
+    flex-direction: column;
+}
+
+.price_contain {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.price {
+    display: flex;
+    flex-direction: column;
+}
+
+.price_input {
+    width: 5rem;
+}
+
+.reduc_input {
+    width: 5rem;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+}
+
+.category_select {
+    width: auto;
+}
+
+.container_status {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.status {
+    display: flex;
+    flex-direction: column;
+}
+
+.status {
+    display: flex;
+    flex-direction: column;
+}
+
+.quantity {
+    display: flex;
+    flex-direction: column;
+}
+
+.quantity_input {
+    width: 3rem;
+}
+
+.taxe {
+    display: flex;
+    flex-direction: column;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+}
+
+.description_input {
+    height: 5rem;
+}
+
+.wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    width: 140px;
+    height: 45px;
+    font-family: Roboto, sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 15px;
+    cursor: pointer;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    border-radius: 45px;
+    transition: all 0.3s ease 0s;
+    outline: none;
+}
+
+footer {
+    height: 5rem;
+    width: 100vw;
+    background-color: rgb(164, 190, 123);
+    bottom: 0px;
+    position: fixed;
+}
