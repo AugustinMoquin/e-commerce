@@ -40,7 +40,8 @@ require ("registertest.php");
             </form>
             <div class="err">
               <?php 
-              echo $message
+              if (isset($message))
+                echo $message;
               ?>
             </div>
 
