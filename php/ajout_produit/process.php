@@ -1,7 +1,7 @@
 <?php
 include ("../db_connection.php");
 
-$conn = open_Con();
+$conn = openCon();
 
 $name = $_POST['name'];
 $price = $_POST['price'];

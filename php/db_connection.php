@@ -1,6 +1,6 @@
 <?php
 
-function open_Con()
+function openCon()
  {
  $dbhost = "localhost";
  $dbuser = "root";

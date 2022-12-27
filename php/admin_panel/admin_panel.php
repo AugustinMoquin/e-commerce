@@ -20,7 +20,7 @@
              <?php
                     include ("../db_connection.php");
 
-                    $conn = open_Con();
+                    $conn = openCon();
                     $sql = "SELECT username , email , Id , active , inserted_at , updated_at FROM users";
                     $result = $conn->query($sql);
                     
@@ -34,7 +34,9 @@
                         <div class='info'> active: " . $row["active"]. "<br> </div>
                         <div class='info'> inserted at: " . $row["inserted_at"]. "<br>  </div>
                         <div class='info'> last upadte: " . $row["updated_at"]. "<br> </div>
-                        <form action='delete_user.php' method='get'><input type='button' value='supprimer'></form>
+                        <form action='delete_user.php' method='post'>
+                        <div value=". $row["Id"]." name='IdValue'></div>
+                        <input type='button' value='supprimer'></form>
                         </div>" ;
                       }
                     } else {
