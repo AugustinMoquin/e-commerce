@@ -37,7 +37,7 @@
             $target_path = "../images/".$imagename;
 
             if (move_uploaded_file($temp_name, $target_path)) {
-                $query_upload="INSERT INTO products (photo) VALUES ('$target_path')";
+                $query_upload="INSERT INTO products (images_path) VALUES ('$target_path')";
                 if ($conn->query($query_upload) === true) {
                     //echo "New record created successfully";
                 } else {

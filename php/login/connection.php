@@ -1,5 +1,3 @@
-
-
 <html lang="en">
 <?php
 $bdd = new PDO('mysql:host=127.0.0.1;dbname=e-commerce','root','root');
@@ -22,21 +20,23 @@ require ("registertest.php");
                 <button type="button" class="toggle-btn" onclick="register()">Register</button>
             </div>
             <div class="social-icons">
-                <img src="/cli/assets/img/fb.png">
-                <img src="/cli/assets/img/gp.png">
-                <img src="/cli/assets/img/tw.png">
+                <img src="/cli/assets/img/fb.png"  alt="img">
+                <img src="/cli/assets/img/gp.png" alt="img">
+                <img src="/cli/assets/img/tw.png" alt="img">
             </div>
             <form id="login" class="input-group"  method="POST" >
                 <input type="text" class="input-field" placeholder="User Id" name="username" required>
                 <input type="password" class="input-field" placeholder="Enter Password" name="passwd" required>
-                <input type="submit" class="submit-btn" name="formconnexion" action="/e-commerce/php/login/registertest.php" ></input>
+                <input type="submit" class="submit-btn" name="formconnexion" 
+                action="/e-commerce/php/login/registertest.php" ></input>
             </form>
             <form id="register" class="input-group"  method="POST" >
                 <input type="text" class="input-field" placeholder="User Id" name="username" required>
                 <input type="email" class="input-field" placeholder="Email Id" name="email" required>
                 <input type="password" class="input-field" placeholder="Enter Password" name="passwd" required>
                 <input type="password" class="input-field" placeholder="Confirm Password" name="passwd2" required>
-                <input type="submit" class="submit-btn"  name="forminscription" action="/e-commerce/php/login/registertest.php"></input>
+                <input type="submit" class="submit-btn"  name="forminscription" 
+                action="/e-commerce/php/login/registertest.php"></input>
             </form>
             <div class="err">
               <?php 

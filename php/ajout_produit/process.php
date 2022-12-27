@@ -13,14 +13,14 @@ $taxe = $_POST['taxe'];
 $description = $_POST['description'];
 
 
-$file_name=$_FILES["uploadedimage"]["name"];
-$temp_name=$_FILES["uploadedimage"]["tmp_name"];
-$imgtype=$_FILES["uploadedimage"]["type"];
-$ext= GetImageExtension($imgtype);
-$imagename= $file_name."-".date("d-m-Y")."-".time().$ext;
-$target_path = "../images/".$imagename;
+// $file_name=$_FILES["uploadedimage"]["name"];
+// $temp_name=$_FILES["uploadedimage"]["tmp_name"];
+// $imgtype=$_FILES["uploadedimage"]["type"];
+// $ext= GetImageExtension($imgtype);
+// $imagename= $file_name."-".date("d-m-Y")."-".time().$ext;
+// $target_path = "../images/".$imagename;
 
-echo $target_path;
+// echo $target_path;
 
 
 $query_upload="INSERT INTO products 

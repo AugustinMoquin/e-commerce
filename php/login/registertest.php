@@ -33,7 +33,7 @@ if(isset($_POST['forminscription']))
                             {
                                 $insertmbr = $bdd->prepare("INSERT INTO users(email,username,passwd) VALUES(?,?,?)");
                                 $insertmbr->execute(array($email,$username,$passwdhash));
-                                $message = "Votre compte a bien était créer";
+                                $message = "Votre compte a bien était créé";
                             }
                             else
                             {
@@ -98,7 +98,7 @@ if(isset($_POST['formconnexion']))
                 }
                 else
                 {
-                    $message= "Profil Mauvais";
+                    $message= "ce profil n'éxiste pas";
                 }
 
     }
