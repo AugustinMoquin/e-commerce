@@ -12,7 +12,7 @@
 <?php
 include ("../db_connection.php");
 
-$conn = openCon();
+$conn = open_Con();
     function GetImageExtension($imagetype)
      {
        if (empty($imagetype)) return false;
@@ -49,7 +49,9 @@ if (!empty($_FILES["uploadedimage"])) {
     }
 }
 closeCon($conn);
-//echo $target_path;
+
+
+
 ?>
 
 
@@ -77,7 +79,7 @@ closeCon($conn);
             </div>
         </div>
         <div class="container_info">
-            <form action="process.php" class="container_info">
+            <form action="process.php" class="container_info" method="POST">
                 <div>
                     <label class="name"> Nom du produit
                         <input type="text" name = "name" class = "name_input"/>
@@ -133,9 +135,10 @@ closeCon($conn);
                         <input type="text" class = "description_input" name = "description">
                     </label>
                 </div>
+                <div name="image_path" value = "<?php $target_path ?>" ></div>
 
                 <div class="wrap">
-                    <input type="submit" value="Submit Page" class = " button" />
+                    <input type="submit" value="Submit Page" class = " button"/>
                 </div>
                 
             </form>
@@ -150,7 +153,6 @@ closeCon($conn);
     </footer>
         
 </div>
-
 
 
 
