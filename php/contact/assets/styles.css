@@ -1,0 +1,252 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    
+    font-family: 'Overpass Mono', monospace;
+    color: black;
+}
+
+a
+{
+    text-decoration: none;
+    color: black;
+}
+
+.hide
+{
+    display: none;
+}
+
+main
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin: auto;
+}
+
+.title
+{
+    font-size: 50px;
+    font-weight: bold;
+    padding: 1.5% 0;
+}
+
+.title-info
+{
+	padding-bottom: 2%;
+}
+
+.form
+{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    padding: 2%;
+}
+
+.input-group, .textarea-group
+{
+    padding: 1% 0;
+}
+
+input, textarea
+{
+    color: inherit;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #757575;
+    padding: 1.5%;
+    font-size: 20px;
+}
+
+input:focus, textarea:focus
+{
+    background-color: transparent;
+    outline: transparent;
+    border-bottom: 2px solid #69f0ae;
+}
+
+input::placeholder, textarea::placeholder
+{
+    color: transparent;
+}
+
+label
+{
+    color: #757575;
+    position: relative;
+    left: 0.5em;
+    top: -2em;
+	cursor: auto;
+    transition: 0.3s ease all;
+}
+
+input:focus ~ label, input:not(:placeholder-shown) ~ label
+{
+    top: -4em;
+    color: #69f0ae;
+    font-size: 15px;
+}
+
+textarea:focus ~ label, textarea:not(:placeholder-shown) ~ label
+{
+    top: -10.5em;
+    color: #69f0ae;
+    font-size: 15px;
+}
+
+.button-div
+{
+    display: flex;
+    justify-content: center;
+}
+
+button
+{
+    padding: 2%;
+    width: 50%;
+    border: 1px solid;
+    border-color: #212121;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 18px;
+    background-color: none;
+    color: inherit;
+    box-shadow: 0 0 10px #212121;
+}
+
+button:hover
+{
+    cursor: pointer;
+}
+
+.navbar
+{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+}
+
+.left-side
+{
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.logo
+{
+    padding: 0 2%;
+}
+
+.logo img
+{
+    height: 7vh;
+}
+
+ul
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+}
+
+li
+{
+    list-style: none;
+}
+
+.left-side li
+{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+}
+
+.right-side
+{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 0.1;
+}
+
+.account
+{
+    display: flex;
+    align-items: center;
+    margin-right: 30%;
+}
+
+.account:hover
+{
+    cursor: pointer;
+}
+
+.right-side img
+{
+    height: 5vh;
+    border-radius: 50px;
+    margin-right: 20%;
+}
+
+.dropdown-caret {
+    border-top-style: solid;
+    border-top-width: 4px;
+    border-right: 4px solid transparent;
+    border-bottom: 0 solid transparent;
+    border-left: 4px solid transparent;
+}
+
+.dropdown
+{
+    position: absolute;
+    top: 8vh;
+    right: 1vh;
+    border: 0.5px solid;
+    border-radius: 5px;
+    border-color: #212121;
+    padding: 0.5%;
+    box-shadow: 0 0 10px #212121;
+    background-color: black;
+    z-index: 2;
+}
+
+.user-name
+{
+    margin-bottom: 5%;
+    padding: 2%;
+    width: 180px;
+    border-bottom: 1px solid #212121;
+    color: #757575;
+}
+
+.user-name:hover
+{
+    cursor: default;
+}
+
+footer
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 20vh;
+    width: 75%;
+    margin: auto;
+    opacity: 0.2;
+    border-top: 1px solid #212121;
+}
+
+
