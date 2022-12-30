@@ -1,6 +1,6 @@
 <?php
 
-function openConn()
+function openCon()
  {
  $dbhost = "localhost";
  $dbuser = "user";
@@ -11,7 +11,7 @@ function openConn()
  return $conn;
  }
  
-function closeConn($conn)
+function closeCon($conn)
  {
  $conn -> close();
  }

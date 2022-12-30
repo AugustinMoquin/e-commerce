@@ -1,69 +1,67 @@
 body {
-    color:black;
-    background-color:white;
-    background-image:url("../ajout_produit_images/pepe.jpg");
-    margin:center;
-    
+    color: black;
+    background-color: white;
+    background-image: url("../../../ajout_produit/assets/ajout_produit_images/pepe.jpg");
+    margin: center;
 }
 
 .product-page {
     display: flex;
     flex-direction: column;
-   
-  }
-  
-  .product-header {
+}
+
+.product-header {
     width: 100%;
-  }
-  
-  .product-title {
+}
+
+.product-title {
     font-size: 2em;
     text-align: left;
     margin: 0;
-  }
-  
-  .product-section {
+}
+
+.product-section {
     display: flex;
     flex-direction: row;
-  }
-  
-  .product-image-container {
+}
+
+.product-image-container {
     width: 30%;
-  }
-  
-  .main-image {
+}
+
+.main-image {
     width: 100%;
     display: block;
     margin-left: 25%;
-  }
-  
-  .product-info {
+}
+
+.product-info {
     width: 70%;
     display: flex;
     flex-direction: column;
     padding: 5em;
-  }
-  
-  .product-description {
+}
+
+.product-description {
     font-size: 1.2em;
     margin-bottom: 1em;
-  }
-  
-  .product-quantity {
+}
+
+.product-quantity {
     margin-bottom: 1em;
-  }
-  
-  .product-price {
+}
+
+.product-price {
     font-size: 1.2em;
     margin-bottom: 1em;
     align-self: flex-end;
-  }
-  
-  .price {
+}
+
+.price {
     font-weight: bold;
-  }
-  
-  .add-to-cart {
+}
+
+.add-to-cart {
     display: block;
     width: 100%;
     padding: 0.5em;
@@ -72,9 +70,9 @@ body {
     font-size: 1.2em;
     border: none;
     cursor: pointer;
-  }
+}
 
-  .container_all {
+.container_all {
     width: auto;
     margin-left: 50%;
     transform: translateX(-50%);

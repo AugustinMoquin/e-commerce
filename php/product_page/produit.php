@@ -31,7 +31,7 @@
         </div>
         <div class="product-section">
             <div class="product-image-container">
-                <img src="<?php  echo $userinfo['photo']; ?>" class = "main-image" alt="Image">
+                <img src="<?php  echo $userinfo['images_path']; ?>" class = "main-image" alt="Image">
             </div>
             <div class="product-info">
             <div class="product-description">description
@@ -39,7 +39,9 @@
             </div>
             <div class="product-quantity">
                 <label for="quantity">Quantité :</label>
-                <input type="number" id="quantity" value="1">
+                <div class="quantity">
+                    <p><?php  echo $userinfo['quantity']; ?></p>
+                </div>
             </div>
             <div class="product-price">
                 <p>Prix : <span class="price"><?php  echo $userinfo['regular_price']; ?></span></p>
