@@ -1,0 +1,24 @@
+body {
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    margin: 0px;
+}
+
+.products {
+    margin: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+}
+
+.img {
+    position: relative;
+    object-fit: contain;
+    height: 8rem;
+    width: 8rem;
+}
+
+.ind_products {
+    width: 10rem;
+    height: 13rem;
+}
