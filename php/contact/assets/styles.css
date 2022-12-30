@@ -9,6 +9,7 @@ body
 {
     
     font-family: 'Overpass Mono', monospace;
+    background-color: #E5D9B6;
     color: black;
 }
 
@@ -73,7 +74,7 @@ input:focus, textarea:focus
 {
     background-color: transparent;
     outline: transparent;
-    border-bottom: 2px solid #69f0ae;
+    border-bottom: 2px solid #285430;
 }
 
 input::placeholder, textarea::placeholder
@@ -94,14 +95,14 @@ label
 input:focus ~ label, input:not(:placeholder-shown) ~ label
 {
     top: -4em;
-    color: #69f0ae;
+    color: #285430;
     font-size: 15px;
 }
 
 textarea:focus ~ label, textarea:not(:placeholder-shown) ~ label
 {
     top: -10.5em;
-    color: #69f0ae;
+    color: #285430;
     font-size: 15px;
 }
 
@@ -116,13 +117,13 @@ button
     padding: 2%;
     width: 50%;
     border: 1px solid;
-    border-color: #212121;
+    border-color: #5F8D4E;
     border-radius: 5px;
     font-family: inherit;
     font-size: 18px;
     background-color: none;
     color: inherit;
-    box-shadow: 0 0 10px #212121;
+    box-shadow: 0 0 10px #5F8D4E;
 }
 
 button:hover
@@ -248,5 +249,3 @@ footer
     opacity: 0.2;
     border-top: 1px solid #212121;
 }
-
-
