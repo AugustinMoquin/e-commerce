@@ -24,12 +24,14 @@ header {
 }
 
 .container_all {
+    position: relative;
     width: auto;
     margin-left: 50%;
     transform: translateX(-50%);
     background-color: rgb(229, 217, 182);
     display: flex;
     padding: 3rem;
+    align-items: center;
     border-width: 1px;
     border-style: solid;
     border-color: black;
@@ -58,6 +60,8 @@ header {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 
 .name {
