@@ -1,0 +1,68 @@
+.profil {
+    width: auto;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(229, 217, 182);
+    display: flex;
+    padding: 3rem;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-image: initial;
+    border-radius: 10px;
+    gap: 3rem;
+  }
+
+  .profil_mdp{
+    width: auto;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(229, 217, 182);
+    display: flex;
+    padding: 3rem;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-image: initial;
+    border-radius: 10px;
+    gap: 3rem;
+  }
+
+  .profil__nom {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 16px;
+
+  }
+  .profil__information {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    border: 5px solid black;
+  }
+  .profil__info__item {
+    width: 50%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  .profil__info__item--label {
+    font-weight: bold;
+  }
+
+  .profil__info__item--age {
+    width: 100%;
+  }
+  .profil__achat {
+    width: auto;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(229, 217, 182);
+    display: flex;
+    padding: 3rem;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-image: initial;
+    border-radius: 10px;
+    gap: 3rem;
+  }

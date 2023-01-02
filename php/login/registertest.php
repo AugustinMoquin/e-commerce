@@ -1,6 +1,6 @@
 <?php
 
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=e-commerce','root','root');
+$bddadmin = new PDO('mysql:host=127.0.0.1;dbname=e-commerce','root','root');
 
 if(isset($_POST['forminscription']))
 {
