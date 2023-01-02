@@ -1,3 +1,13 @@
+TO DO :
+-connection en tant que admin ou utilisateur
+
+
+
+
+
+
+
+
 
 
 CREATE TABLE IF NOT EXISTS Users(
