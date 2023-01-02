@@ -1,5 +1,5 @@
 <?php
-include '../db_user_connection.php';
+include '../db_connection.php';
 $conn = openCon();
 echo "Connected Successfully";
 

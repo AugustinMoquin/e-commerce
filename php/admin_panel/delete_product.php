@@ -2,20 +2,20 @@
 include("../db_connection.php");
 $conn = openCon();
 
-$IdUser = $_GET["id"];
-echo $IdUser;
+$IdProduct = $_GET["id"];
+echo $IdProduct;
 
-$sql = "DELETE FROM users WHERE Id = $IdUser;";
+$sql = "DELETE FROM products WHERE Id = $IdProduct;";
 $result = $conn->query($sql);
 
 if ($conn->query($sql) === true) {
-    echo "user deleted";
+    echo "Product deleted";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 $conn->close();
-sleep(3);
+
 header('Location: http://localhost:8080/e-commerce/php/admin_panel/admin_panel.php');
 
 
