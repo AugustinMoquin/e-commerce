@@ -17,22 +17,22 @@
         <form action="" method="" class="form">
             <div class="input-group">
                 <input type="text" name="first_name" id="first-name" placeholder="First name">
-                <label for="first-name"> &#128056; First name</label>
+                <label for="first-name"> &#128056; First name &#128056; </label>
             </div>
 
             <div class="input-group">
                 <input type="text" name="last_name" id="last-name" placeholder="Last Name">
-                <label for="last-name"> &#128056; Last name</label>
+                <label for="last-name"> &#128056; Last name &#128056; </label>
             </div>
 
             <div class="input-group">
                 <input type="email" name="e-mail" id="e-mail" placeholder="e-mail">
-                <label for="e-mail"> &#128056; e-mail</label>
+                <label for="e-mail"> &#128056; e-mail &#128056; </label>
             </div>
 
             <div class="textarea-group">
                 <textarea name="message" id="message" rows="5" placeholder="Message"></textarea>
-                <label for="message"> &#128056; Message</label>
+                <label for="message"> &#128056; Message &#128056; </label>
             </div>
 
             <div class="button-div">
