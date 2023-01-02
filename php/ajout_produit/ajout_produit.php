@@ -75,6 +75,7 @@ if (
 
 
 
+
 // if (!empty($_FILES["uploadedimage"])) {
 
 //     $file_name=$_FILES["uploadedimage"]["name"];
