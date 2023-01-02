@@ -25,7 +25,7 @@ echo "Connected Successfully";
                   // output data of each row
                   while ($row = $result->fetch_assoc()) {
                     echo  "<a class='ind_products' 
-                    href='http://localhost/e-commerce/php/product_page/produit.php?&id=". $row["Id"]."'>
+                    href='http:8080//localhost/e-commerce/php/product_page/produit.php?&id=". $row["Id"]."'>
                     <div class='ind_products' name='". $row["Id"]."'>  
                     <img class='img' src='". $row["images_path"]."'>
                     <div class='info'> Nom: " . $row["NAME"]. "<br> </div>
