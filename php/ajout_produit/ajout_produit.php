@@ -6,116 +6,124 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../ajout_produit/assets/css/ajout_produit_style.css">
-    <title>Document</title>
+    <title>Add product</title>
 </head>
 
 <body>
 
     <?php
-include("../db_connection.php");
+    include("../db_connection.php");
 
-$conn = openCon();
-function GetImageExtension($imagetype)
-{
-    if (empty($imagetype))
-        return false;
-    switch ($imagetype) {
-        case 'image/bmp':
-            return '.bmp';
-        case 'image/gif':
-            return '.gif';
-        case 'image/jpeg':
-            return '.jpg';
-        case 'image/png':
-            return '.png';
-        default:
+    $conn = openCon();
+    function GetImageExtension($imagetype)
+    {
+        if (empty($imagetype))
             return false;
+        switch ($imagetype) {
+            case 'image/bmp':
+                return '.bmp';
+            case 'image/gif':
+                return '.gif';
+            case 'image/jpeg':
+                return '.jpg';
+            case 'image/png':
+                return '.png';
+            default:
+                return false;
+        }
     }
-}
 
-if (
-    isset($_POST['name']) && $_POST['price'] && $_POST['reduc'] && $_POST['category']
-    && $_POST['status'] && $_POST['quantity'] && $_POST['taxe'] && $_POST['description'] > 0 && !empty($_FILES["uploadedimage"])
-) {
+    if (
+        isset($_POST['name']) && $_POST['price'] && $_POST['reduc'] && $_POST['category']
+        && $_POST['status'] && $_POST['quantity'] && $_POST['taxe'] && $_POST['description'] > 0 && !empty($_FILES["uploadedimage"])
+    ) {
 
-    $name = $_POST['name'];
-    $price = $_POST['price'];
-    $reduc = $_POST['reduc'];
-    $category = $_POST['category'];
-    $status = $_POST['status'];
-    $quantity = $_POST['quantity'];
-    $taxe = $_POST['taxe'];
-    $description = $_POST['description'];
+        $name = $_POST['name'];
+        $price = $_POST['price'];
+        $reduc = $_POST['reduc'];
+        $category = $_POST['category'];
+        $status = $_POST['status'];
+        $quantity = $_POST['quantity'];
+        $taxe = $_POST['taxe'];
+        $description = $_POST['description'];
 
 
-    $file_name = $_FILES["uploadedimage"]["name"];
-    $temp_name = $_FILES["uploadedimage"]["tmp_name"];
-    $imgtype = $_FILES["uploadedimage"]["type"];
-    $ext = GetImageExtension($imgtype);
-    $imagename = $file_name . "-" . date("d-m-Y") . "-" . time() . $ext;
-    $target_path = "../images/" . $imagename;
+        $file_name = $_FILES["uploadedimage"]["name"];
+        $temp_name = $_FILES["uploadedimage"]["tmp_name"];
+        $imgtype = $_FILES["uploadedimage"]["type"];
+        $ext = GetImageExtension($imgtype);
+        $imagename = $file_name . "-" . date("d-m-Y") . "-" . time() . $ext;
+        $target_path = "../images/" . $imagename;
 
-    if (move_uploaded_file($temp_name, $target_path)) {
-        $query_upload = "INSERT INTO products (images_path, NAME, regular_price, discount_price,
+        if (move_uploaded_file($temp_name, $target_path)) {
+            $query_upload = "INSERT INTO products (images_path, NAME, regular_price, discount_price,
              category, product_status, quantity, taxable, description)
             VALUES ('$target_path', '$name', '$price', '$reduc', '$category',
              '$status', '$quantity', '$taxe', '$description')";
-        if ($conn->query($query_upload) === true) {
-            echo "New record created successfully";
+            if ($conn->query($query_upload) === true) {
+                echo "New record created successfully";
+            } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            echo "Error While uploading image on the server";
+            sleep(3);
+            header('Location: http://localhost/e-commerce/php/ajout_produit/ajout_produit.php');
         }
-    } else {
-        echo "Error While uploading image on the server";
-        sleep(3);
-        header('Location: http:8080//localhost/e-commerce/php/ajout_produit/ajout_produit.php');
+
     }
 
-}
+
+
+    // if (!empty($_FILES["uploadedimage"])) {
+    
+    //     $file_name=$_FILES["uploadedimage"]["name"];
+    //     $temp_name=$_FILES["uploadedimage"]["tmp_name"];
+    //     $imgtype=$_FILES["uploadedimage"]["type"];
+    //     $ext= GetImageExtension($imgtype);
+    //     $imagename= $file_name."-".date("d-m-Y")."-".time().$ext;
+    //     $target_path = "../images/".$imagename;
+    
+    //     if (move_uploaded_file($temp_name, $target_path)) {
+    //         $query_upload="INSERT INTO products (images_path, NAME, regular_price, discount_price,
+    //          category, product_status, quantity, taxable, description)
+    //         VALUES ('$target_path', '$name', '$price', '$reduc', '$category',
+    //          '$status', '$quantity', '$taxe', '$description')";
+    //         if ($conn->query($query_upload) === true) {
+    //             //echo "New record created successfully";
+    //         } else {
+    //             echo "Error: " . $sql . "<br>" . $conn->error;
+    //         }
+    //     }else {
+    //         header('Location: http://localhost/e-commerce/php/ajout_produit/ajout_produit.php');
+    //         echo "Error While uploading image on the server";
+    
+    //     }
+    // }
+    
+
+    closeCon($conn);
+    ?>
 
 
 
-// if (!empty($_FILES["uploadedimage"])) {
-
-//     $file_name=$_FILES["uploadedimage"]["name"];
-//     $temp_name=$_FILES["uploadedimage"]["tmp_name"];
-//     $imgtype=$_FILES["uploadedimage"]["type"];
-//     $ext= GetImageExtension($imgtype);
-//     $imagename= $file_name."-".date("d-m-Y")."-".time().$ext;
-//     $target_path = "../images/".$imagename;
-
-//     if (move_uploaded_file($temp_name, $target_path)) {
-//         $query_upload="INSERT INTO products (images_path, NAME, regular_price, discount_price,
-//          category, product_status, quantity, taxable, description)
-//         VALUES ('$target_path', '$name', '$price', '$reduc', '$category',
-//          '$status', '$quantity', '$taxe', '$description')";
-//         if ($conn->query($query_upload) === true) {
-//             //echo "New record created successfully";
-//         } else {
-//             echo "Error: " . $sql . "<br>" . $conn->error;
-//         }
-//     }else {
-//         header('Location: http://localhost/e-commerce/php/ajout_produit/ajout_produit.php');
-//         echo "Error While uploading image on the server";
-
-//     }
-// }
-
-
-closeCon($conn);
-?>
-
-
-
-    <header>
-
+    <header class="main-header">
+        <nav>
+            <img src="../images/icons8-monkas-48.png">
+            <h1 id="logo">Kermit & Co
+                <form action="" class="search-bar">
+                    <input type="text" autocomplete="off" placeholder="Search" name="q">
+                    <button type="submit"><img src="../images/icons8-chercher-48.png"></button>
+                </form>
+            </h1>
+            <ul class="nav-police">
+                <li><a href="#">FAVORIS<img src="../images/icons8-aimer-50.png"></a></li>
+                <li><a href="#">COMPTE<img src="../images/icons8-kermit-the-frog-48.png"></a></li>
+                <li><a href="#">PANIER<img src="../images/icons8-achats-64.png"></a></li>
+            </ul>
+        </nav>
     </header>
-
     <div class="container">
-
-        <div class="Title">
-            <h1>AJOUT DE PRODUIT</h1>
-        </div>
         <div class="container_all">
             <form enctype="multipart/form-data" action="" method="post">
                 <div class="container_info">
@@ -161,29 +169,25 @@ closeCon($conn);
                             </label>
                         </div>
 
-                        <div>
-                            <label class="taxe">Taxe
+                        <div style="display: flex;">
+                            <label class="description"> Description
+                                <input type="text" class="description_input" name="description">
+                            </label><label class="taxe">Taxe
                                 <label>oui
-                                    <input type="radio" name="taxe" value="oui" />
+                                    <input type="radio" name="taxe" value="oui">
                                 </label>
                                 <label>non
-                                    <input type="radio" name="taxe" value="non" />
+                                    <input type="radio" name="taxe" value="non">
                                 </label>
                             </label>
+
                         </div>
+                        <div name="image_path" value="<?php $target_path ?>"></div>
 
+                        <div class="wrap">
+                            <input type="submit" value="Submit Page" class=" button" />
+                        </div>
                     </div>
-                    <div>
-                        <label class="description"> Description
-                            <input type="text" class="description_input" name="description">
-                        </label>
-                    </div>
-                    <div name="image_path" value="<?php $target_path ?>"></div>
-
-                    <div class="wrap">
-                        <input type="submit" value="Submit Page" class=" button" />
-                    </div>
-                </div>
             </form>
         </div>
     </div>

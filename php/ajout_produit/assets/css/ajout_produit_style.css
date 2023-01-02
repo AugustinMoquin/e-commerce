@@ -1,5 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
 body {
-    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-family: 'Overpass Mono', monospace;
     font-size: 14px;
     margin: 0px;
 }
@@ -7,30 +15,83 @@ body {
 .container {
     height: 100%;
     width: 100%;
-    background-image: url("../ajout_produit_images/pepe.jpg");
+    background-image: url("../ajout_produit_images/Test.png");
     position: absolute;
+    
 }
 
-header {
-    height: 5rem;
-    width: 100vw;
-    background-color: rgb(164, 190, 123);
+/* ---------------------Head--------------------------------- */
+
+.main-header {
+    background: green;
+    color: black;
     position: relative;
 }
-
-.Title {
-    width: 100vw;
-    text-align: center;
+a{
+    color: black;
+    text-decoration: none;
 }
+nav{
+    display: flex;
+    align-items: center;
+    width: 75%;
+    margin: auto;
+    padding: 1rem;
+}
+nav ul{
+    display: flex;
+    flex:1 1 40rem;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+.nav-police{
+    display: flex;
+    font-size: 13px;
+}
+div > ul > li:hover{
+    color: green;
+    border-bottom: 2px solid green;
+}
+#logo{
+    flex: 1 1 100rem;
+}
+.search-bar{
+    width: 40%;
+    max-width: px;
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+}
+.search-bar input{
+    background: white;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 12px 10px;
+    font-size: 20px;
+    color: #000000;
+}
+.search-bar button img{
+    width: 25px;
+}
+.search-bar button img{
+    border: none;
+    width: 42px;
+    height: 42px;
+    background: white;
+    cursor: pointer; 
+}
+ /* ------------------------------------------ */
+
 
 .container_all {
     position: relative;
-    width: auto;
     margin-left: 50%;
     transform: translateX(-50%);
     background-color: rgb(229, 217, 182);
     display: flex;
-    padding: 3rem;
+    padding: 1rem;
     align-items: center;
     border-width: 1px;
     border-style: solid;
@@ -38,6 +99,7 @@ header {
     border-image: initial;
     border-radius: 10px;
     gap: 3rem;
+    margin-top: 10px;
 }
 
 .image_container {
@@ -59,9 +121,15 @@ header {
 .container_info {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     margin-left: 50%;
     transform: translateX(-50%);
+}
+
+.container_info * {
+    width: 100% !important;
+    align-items: center;
+    text-align: center;
 }
 
 .name {
@@ -165,10 +233,3 @@ header {
     outline: none;
 }
 
-footer {
-    height: 5rem;
-    width: 100vw;
-    background-color: rgb(164, 190, 123);
-    bottom: 0px;
-    position: fixed;
-}

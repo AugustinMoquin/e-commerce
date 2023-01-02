@@ -1,24 +1,31 @@
-* {
+*
+{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+body
+{
+    
     font-family: 'Overpass Mono', monospace;
+    background-color: #E5D9B6;
     color: black;
 }
 
-a {
+a
+{
     text-decoration: none;
     color: black;
 }
 
-.hide {
+.hide
+{
     display: none;
 }
 
-main {
+main
+{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,30 +34,33 @@ main {
     margin: auto;
 }
 
-.title {
+.title
+{
     font-size: 50px;
     font-weight: bold;
     padding: 1.5% 0;
 }
 
-.title-info {
-    padding-bottom: 2%;
+.title-info
+{
+	padding-bottom: 2%;
 }
 
-.form {
+.form
+{
     display: flex;
     flex-direction: column;
     width: 60%;
     padding: 2%;
 }
 
-.input-group,
-.textarea-group {
+.input-group, .textarea-group
+{
     padding: 1% 0;
 }
 
-input,
-textarea {
+input, textarea
+{
     color: inherit;
     width: 100%;
     background-color: transparent;
@@ -60,118 +70,133 @@ textarea {
     font-size: 20px;
 }
 
-input:focus,
-textarea:focus {
+input:focus, textarea:focus
+{
     background-color: transparent;
     outline: transparent;
-    border-bottom: 2px solid #69f0ae;
+    border-bottom: 2px solid #285430;
 }
 
-input::placeholder,
-textarea::placeholder {
+input::placeholder, textarea::placeholder
+{
     color: transparent;
 }
 
-label {
+label
+{
     color: #757575;
     position: relative;
     left: 0.5em;
     top: -2em;
-    cursor: auto;
+	cursor: auto;
     transition: 0.3s ease all;
 }
 
-input:focus~label,
-input:not(:placeholder-shown)~label {
+input:focus ~ label, input:not(:placeholder-shown) ~ label
+{
     top: -4em;
-    color: #69f0ae;
+    color: #285430;
     font-size: 15px;
 }
 
-textarea:focus~label,
-textarea:not(:placeholder-shown)~label {
+textarea:focus ~ label, textarea:not(:placeholder-shown) ~ label
+{
     top: -10.5em;
-    color: #69f0ae;
+    color: #285430;
     font-size: 15px;
 }
 
-.button-div {
+.button-div
+{
     display: flex;
     justify-content: center;
 }
 
-button {
+button
+{
     padding: 2%;
     width: 50%;
     border: 1px solid;
-    border-color: #212121;
+    border-color: #5F8D4E;
     border-radius: 5px;
     font-family: inherit;
     font-size: 18px;
     background-color: none;
     color: inherit;
-    box-shadow: 0 0 10px #212121;
+    box-shadow: 0 0 10px #5F8D4E;
 }
 
-button:hover {
+button:hover
+{
     cursor: pointer;
 }
 
-.navbar {
+.navbar
+{
     height: 10vh;
     display: flex;
     align-items: center;
 }
 
-.left-side {
+.left-side
+{
     display: flex;
     align-items: center;
     flex: 1;
 }
 
-.logo {
+.logo
+{
     padding: 0 2%;
 }
 
-.logo img {
+.logo img
+{
     height: 7vh;
 }
 
-ul {
+ul
+{
     display: flex;
     align-items: center;
     justify-content: space-around;
     width: 50%;
 }
 
-li {
+li
+{
     list-style: none;
 }
 
-.left-side li {
+.left-side li
+{
     height: 10vh;
     display: flex;
     align-items: center;
 }
 
-.right-side {
+.right-side
+{
     display: flex;
     justify-content: flex-end;
     align-items: center;
     flex: 0.1;
 }
 
-.account {
+.account
+{
     display: flex;
     align-items: center;
     margin-right: 30%;
 }
 
-.account:hover {
+.account:hover
+{
     cursor: pointer;
 }
 
-.right-side img {
+.right-side img
+{
     height: 5vh;
     border-radius: 50px;
     margin-right: 20%;
@@ -185,7 +210,8 @@ li {
     border-left: 4px solid transparent;
 }
 
-.dropdown {
+.dropdown
+{
     position: absolute;
     top: 8vh;
     right: 1vh;
@@ -198,7 +224,8 @@ li {
     z-index: 2;
 }
 
-.user-name {
+.user-name
+{
     margin-bottom: 5%;
     padding: 2%;
     width: 180px;
@@ -206,11 +233,13 @@ li {
     color: #757575;
 }
 
-.user-name:hover {
+.user-name:hover
+{
     cursor: default;
 }
 
-footer {
+footer
+{
     display: flex;
     justify-content: space-around;
     align-items: center;
