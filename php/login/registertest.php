@@ -95,6 +95,8 @@ if(isset($_POST['formconnexion']))
                     $_SESSION['username'] = $userinfo['username'];
                     header("Location: profil.php?id=".$_SESSION['Id']);
                     $message= "tu es connécté";
+                    setcookie($username, 'username', time()+3600*24, '/', '', true, true);
+                    setcookie($passwd, 'password', time()+3600*24, '/', '', true, true);
                 }
                 else
                 {

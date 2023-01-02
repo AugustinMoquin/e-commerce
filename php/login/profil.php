@@ -45,6 +45,7 @@
         $newpays = htmlspecialchars($_POST['pays']);
         $insertpays = $bdd->prepare("UPDATE users SET pays = ? WHERE id = ?");
         $insertpays->execute(array($newpays, $getid));
+        setcookie('pays',$userinfo['pays'], time()+3600*24, '/', '', true, true);
       }
 
       if(isset($_POST['newpassword']) AND !empty($_POST['newpassword']) AND isset($_POST['confirmpassword']) AND !empty($_POST['confirmpassword'])) {
@@ -63,7 +64,9 @@
             }
           }
           header("Location: profil.php?id=".$getid);
-        }
+          setcookie($userinfo['email'], 'mail', time()+3600*24, '/', '', true, true);
+          setcookie($userinfo['pays'], 'pays', time()+3600*24, '/', '', true, true);
+    }
 }
 
   function Sécuritymdp($newpassword,$passwdlength):int
