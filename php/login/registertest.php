@@ -28,7 +28,7 @@ if(isset($_POST['forminscription']))
                     {
                         if($passwdlength >=3 )
                         {
-                            echo "security",$test;
+                            
                             if($test==4)
                             {
                                 $insertmbr = $bdd->prepare("INSERT INTO users(email,username,passwd) VALUES(?,?,?)");
