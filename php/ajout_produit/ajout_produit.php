@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../ajout_produit/assets/css/ajout_produit_style.css">
+        <link rel="stylesheet" href="../php/ajout_produit/assets/css/ajout_produit_style.css">
         <title>Add product</title>
     </head>
 
@@ -68,61 +68,13 @@
             } else {
                 echo "Error While uploading image on the server";
                 sleep(3);
-                header('Location: http://localhost/e-commerce/php/ajout_produit/ajout_produit.php');
+                header('Location: http:8080//localhost/e-commerce/php/ajout_produit/ajout_produit.php');
             }
 
-        }
-
-
-
-        // if (!empty($_FILES["uploadedimage"])) {
-        
-        //     $file_name=$_FILES["uploadedimage"]["name"];
-        //     $temp_name=$_FILES["uploadedimage"]["tmp_name"];
-        //     $imgtype=$_FILES["uploadedimage"]["type"];
-        //     $ext= GetImageExtension($imgtype);
-        //     $imagename= $file_name."-".date("d-m-Y")."-".time().$ext;
-        //     $target_path = "../images/".$imagename;
-        
-        //     if (move_uploaded_file($temp_name, $target_path)) {
-        //         $query_upload="INSERT INTO products (images_path, NAME, regular_price, discount_price,
-        //          category, product_status, quantity, taxable, description)
-        //         VALUES ('$target_path', '$name', '$price', '$reduc', '$category',
-        //          '$status', '$quantity', '$taxe', '$description')";
-        //         if ($conn->query($query_upload) === true) {
-        //             //echo "New record created successfully";
-        //         } else {
-        //             echo "Error: " . $sql . "<br>" . $conn->error;
-        //         }
-        //     }else {
-        //         header('Location: http://localhost/e-commerce/php/ajout_produit/ajout_produit.php');
-        //         echo "Error While uploading image on the server";
-        
-        //     }
-        // }
-        
-
+        }   
         closeCon($conn);
         ?>
-
-
-
-        <header class="main-header">
-            <nav>
-                <img src="../images/icons8-monkas-48.png">
-                <h1 id="logo">Kermit & Co
-                    <form action="" class="search-bar">
-                        <input type="text" autocomplete="off" placeholder="Search" name="q">
-                        <button type="submit"><img src="../images/icons8-chercher-48.png"></button>
-                    </form>
-                </h1>
-                <ul class="nav-police">
-                    <li><a href="#">FAVORIS<img src="../images/icons8-aimer-50.png"></a></li>
-                    <li><a href="#">COMPTE<img src="../images/icons8-kermit-the-frog-48.png"></a></li>
-                    <li><a href="#">PANIER<img src="../images/icons8-achats-64.png"></a></li>
-                </ul>
-            </nav>
-        </header>
+        
         <div class="container">
             <div class="container_all">
                 <form enctype="multipart/form-data" action="" method="post">

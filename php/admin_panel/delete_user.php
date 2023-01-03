@@ -15,7 +15,7 @@ if ($conn->query($sql) === true) {
 }
 
 $conn->close();
-sleep(3);
+
 header('Location: http://localhost:8080/e-commerce/php/admin_panel/admin_panel.php');
 
 

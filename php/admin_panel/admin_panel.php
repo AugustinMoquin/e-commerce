@@ -1,8 +1,10 @@
 <?php
-include("../db_connection.php");
+require ('db_connection.php');
 
 $Product = "SELECT * FROM products";
 $Users = "SELECT * FROM users";
+$root = "C:/xampp/htdocs/e-commerce/php";
+
 
 $conn = openCon();
 
@@ -17,7 +19,7 @@ $AllUser = mysqli_query($conn, $Users);
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../admin_panel/assets/admin_panel_style.css">
+  <link rel="stylesheet" href="../php/admin_panel/assets/admin_panel_style.css">
   <title>Document</title>
 </head>
 
@@ -91,9 +93,6 @@ $AllUser = mysqli_query($conn, $Users);
       // Si non, afficher un message d'erreur
       echo "Aucun résultat trouvé";
     }
-    // echo $_SERVER["DOCUMENT_ROOT"];
-    $parsed_url = parse_url($_SERVER['REQUEST_URI']);
-    echo $parsed_url['path'];
     ?>
   </div>
 
