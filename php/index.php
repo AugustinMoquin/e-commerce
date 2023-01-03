@@ -1,65 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../php/accueil/assets/css/Home.css">
-    <title>Document</title>
-</head>
-<body>
-    <header class="main-header">
-        <nav>
-            <img src="../php/images/icons8-monkas-48.png">
-            <h1 id="logo">Kermit & Co
-                <form action="" class="search-bar">
-                    <input type="text" autocomplete="off" placeholder="Search" name="q">
-                    <button type="submit"><img src="../php/images/icons8-chercher-48.png"></button>
-                </form>
-            </h1>
-            <ul class="nav-police">
-                <li><a href="#">FAVORIS<img src="../php/images/icons8-aimer-50.png"></a></li>
-                <li><a href="#">COMPTE<img src="../php/images/icons8-kermit-the-frog-48.png"></a></li>
-                <li><a href="#">PANIER<img src="../php/images/icons8-achats-64.png"></a></li>
-            </ul>
-        </nav>
-    </header>
-    <body>
-
-    <div class="menu-toggle">
-        <ul class="menu-container">
-            <li class="option1"><a href="#">TELEPHONE</a>
-                <ul class="sous-menu-container1">
-                    <li><a href="#">test</a></li>
-                    <li><a href="#">test</a></li>
-                    <li><a href="#">test</a></li>
-                    <li><a href="#">test</a></li>
-                </ul>
-            </li>
-            <li class="option2"><a href="#">CONSOLE</a>
-                <ul class="sous-menu-container2">
-                    <li><a href="#">test</a></li>
-                    <li><a href="#">test</a></li>
-                    <li><a href="#">test</a></li>
-                    <li><a href="#">test</a></li>
-                </ul>
-            </li>
-            <li class="option3"><a href="#">JEUX VIDEO</a>
-                <ul class="sous-menu-container3">
-                    <li><a href="#">test</a></li>
-                    <li><a href="#">test</a></li>
-                    <li><a href="#">test</a></li>
-                    <li><a href="#">test</a></li>
-                </ul>
-            </li>
-
-        </ul>
-    </div>
-    
-</body>
-</html>
-
-
 <?php
 
 $url = '';
@@ -70,11 +8,17 @@ if (isset($_GET['url'])) {
 }
 
 if ($url == "") {
-    require "$root/accueil/home.html";
+    require "$root/accueil/accueil.php";
 }elseif ($url[0] == "panneau_admin") {
     require "$root/admin_panel/admin_panel.php";
-}elseif ($url[0] == "ajout_produit") {
+}elseif ($url[0] == "ajout_de_produit") {
     require "$root/ajout_produit/ajout_produit.php";
+}elseif ($url[0] == "contact") {
+    require "$root/contact/contact.php";
+}elseif ($url[0] == "produit" && !empty($url[1])) {
+    require "$root/product_page/produit.php";
+}else {
+    require "$root/erreur/erreur404.php";
 }
 
 

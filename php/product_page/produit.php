@@ -1,12 +1,18 @@
 <?php
     
-    $bdd = new PDO('mysql:host=127.0.0.1;dbname=e-commerce','root','root');
+    $bdd = new PDO('mysql:host=127.0.0.1;dbname=e-commerce', 'root', 'root');
     session_start();
-    if(isset($_GET['id'])>0 )
-    {
-        $getid = intval($_GET['id']);
+
+    $url = '';
+
+    if (isset($_GET['url'])) {
+        $url = explode('/', $_GET['url']);
+    }
+
+    if ($url[1]>0) {
+    
         $requser= $bdd->prepare('SELECT * FROM products WHERE id = ?');
-        $requser->execute(array($getid));
+        $requser->execute(array($url[1]));
         $userinfo = $requser->fetch();
         
     
@@ -55,9 +61,9 @@
 </html>
 
 <?php
-}
-else{
-    echo "erreur" ;
 
+}else {
+    echo "erreur404";
 }
+
 ?>

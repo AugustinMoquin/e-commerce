@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <?php
+    echo "erreur 404";
+
+    ?>
 </body>
 </html>

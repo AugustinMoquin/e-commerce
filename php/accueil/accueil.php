@@ -1,7 +1,6 @@
 <?php
-include '../db_connection.php';
+include 'db_connection.php';
 $conn = openCon();
-echo "Connected Successfully";
 
 ?>
 
@@ -11,7 +10,7 @@ echo "Connected Successfully";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../accueil/assets/css/accueil_style.css">
+    <link rel="stylesheet" href="../php/accueil/assets/css/accueil_style.css">
     <title>accueil</title>
 </head>
 <body>
@@ -25,9 +24,9 @@ echo "Connected Successfully";
                   // output data of each row
                   while ($row = $result->fetch_assoc()) {
                     echo  "<a class='ind_products' 
-                    href='http:8080//localhost/e-commerce/php/product_page/produit.php?&id=". $row["Id"]."'>
+                    href='/e-commerce/php/produit/". $row["Id"]."'>
                     <div class='ind_products' name='". $row["Id"]."'>  
-                    <img class='img' src='". $row["images_path"]."'>
+                    <img class='img' src='../php". $row["images_path"]."'>
                     <div class='info'> Nom: " . $row["NAME"]. "<br> </div>
                     <div class='info'> Price: " . $row["regular_price"]. " <br> </div>
                     <div class='info'> discount: " . $row["discount_price"]. "<br>  </div>
