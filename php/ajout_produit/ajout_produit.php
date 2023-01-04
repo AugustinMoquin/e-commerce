@@ -78,53 +78,6 @@ closeCon($conn);
     </head>
 
     <body>
-    <header class="main-header">
-        <nav>
-            <img src="../images/icons8-monkas-48.png" alt="img">
-            <h1 id="logo">Kermit & Ci
-                <form action="" class="search-bar">
-                    <input type="text" autocomplete="off" placeholder="Search" name="q">
-                    <button type="submit"><img src="../images/icons8-chercher-48.png" alt="logo"></button>
-                </form>
-            </h1>
-            <ul class="nav-police">
-                <li><a href="#">FAVORIS<img src="../images/icons8-aimer-50.png" alt="img"></a></li>
-                <li><a href="#">COMPTE<img src="../images/icons8-kermit-the-frog-48.png" alt="img"></a></li>
-                <li><a href="#">PANIER<img src="../images/icons8-achats-64.png" alt="img"></a></li>
-            </ul>
-        </nav>
-    </header>
-    <body>
-
-    <div class="menu-toggle">
-        <ul class="menu-container">
-            <li class="option1"><a href="#">TELEPHONE</a>
-                <ul class="sous-menu-container1">
-                    <li><a href="#">test</a></li>
-                    <li><a href="#">test</a></li>
-                    <li><a href="#">test</a></li>
-                    <li><a href="#">test</a></li>
-                </ul>
-            </li>
-            <li class="option2"><a href="#">CONSOLE</a>
-                <ul class="sous-menu-container2">
-                    <li><a href="#">test</a></li>
-                    <li><a href="#">test</a></li>
-                    <li><a href="#">test</a></li>
-                    <li><a href="#">test</a></li>
-                </ul>
-            </li>
-            <li class="option3"><a href="#">JEUX VIDEO</a>
-                <ul class="sous-menu-container3">
-                    <li><a href="#">test</a></li>
-                    <li><a href="#">test</a></li>
-                    <li><a href="#">test</a></li>
-                    <li><a href="#">test</a></li>
-                </ul>
-            </li>
-
-        </ul>
-    </div>
 
         <div class="container">
             <div class="container_all">

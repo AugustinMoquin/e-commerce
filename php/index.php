@@ -7,19 +7,22 @@ if (isset($_GET['url'])) {
     $url = explode('/', $_GET['url']);
 }
 
-if ($url == "") {
+if ($url == "" || $url == "home" || $url == "accueil") {
     require "$root/accueil/accueil.php";
 }elseif ($url[0] == "panneau_admin") {
     require "$root/admin_panel/admin_panel.php";
 }elseif ($url[0] == "ajout_de_produit") {
     require "$root/ajout_produit/ajout_produit.php";
-}elseif ($url[0] == "contact") {
+}elseif ($url[0] == "contact_us") {
     require "$root/contact/contact.php";
 }elseif ($url[0] == "produit" && !empty($url[1])) {
     require "$root/product_page/produit.php";
+}elseif ($url[0] == "compte") {
+    require "$root/login/profil.php";
 }else {
-    require "$root/erreur/erreur404.php";
+    require "$root/accueil/accueil.php";
 }
+
 
 
 

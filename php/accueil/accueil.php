@@ -14,6 +14,32 @@ $conn = openCon();
     <title>accueil</title>
 </head>
 <body>
+
+<nav>
+
+<div class="heading">
+
+  <h4 style="" >Kermit & Ci</h4>
+  <img src="../php/images/icons8-monkas-48.png" alt="img" class="logo">
+
+
+</div>
+
+<ul class="nav-links">
+
+  <li><a href="/e-commerce/php/">Home</a></li>
+
+  <li><a href="/e-commerce/php/contact_us">Compte</a></li>
+
+  <li><a class="active" href="services.html">Favoris</a></li>
+
+  <li><a href="">Panier</a></li>
+
+</ul>
+
+</nav>
+
+
 <div class="products" >
              <?php
 
@@ -40,6 +66,12 @@ $conn = openCon();
             ?>
     </div>
 </body>
+
+<footer>
+<a href="/e-commerce/php/contact_us">Nous contacter</a>
+
+</footer>
+
 </html>
 
 <?php
