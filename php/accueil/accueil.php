@@ -29,7 +29,7 @@ $conn = openCon();
 
   <li><a href="/e-commerce/php/">Home</a></li>
 
-  <li><a href="/e-commerce/php/contact_us">Compte</a></li>
+  <li><a href="/e-commerce/php/compte">Compte</a></li>
 
   <li><a class="active" href="services.html">Favoris</a></li>
 

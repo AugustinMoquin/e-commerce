@@ -79,9 +79,33 @@ closeCon($conn);
 
     <body>
 
+    <nav>
+
+    <div class="heading">
+
+    <h4 >Kermit & Ci</h4>
+    <img src="../../php/images/icons8-monkas-48.png" alt="img" class="logo">
+
+
+    </div>
+
+    <ul class="nav-links">
+
+    <li><a href="/e-commerce/php/">Home</a></li>
+
+    <li><a href="/e-commerce/php/contact_us">Compte</a></li>
+
+    <li><a class="active" href="services.html">Favoris</a></li>
+
+    <li><a href="">Panier</a></li>
+
+    </ul>
+
+    </nav>
+
         <div class="container">
             <div class="container_all">
-                <form enctype="multipart/form-data" action="" method="post">
+                <form enctype="multipart/form-data" action="/e-commerce/php/ajout_produit/process.php" method="post">
                     <div class="container_info">
                     <label>Upload Your Image</label>
                             <input type="file" name="uploadedimage" placeholder=/>

@@ -4,8 +4,6 @@
     box-sizing: border-box;
 }
 
-
-
 body {
     font-family: 'Overpass Mono', monospace;
     font-size: 14px;
@@ -17,73 +15,7 @@ body {
     width: 100%;
     background-image: url("../ajout_produit_images/Test.png");
     position: absolute;
-    
 }
-
-/* ---------------------Head--------------------------------- */
-
-.main-header {
-    background: green;
-    color: black;
-    position: relative;
-}
-a{
-    color: black;
-    text-decoration: none;
-}
-nav{
-    display: flex;
-    align-items: center;
-    width: 75%;
-    margin: auto;
-    padding: 1rem;
-}
-nav ul{
-    display: flex;
-    flex:1 1 40rem;
-    justify-content: space-around;
-    align-items: center;
-    list-style: none;
-}
-.nav-police{
-    display: flex;
-    font-size: 13px;
-}
-div > ul > li:hover{
-    color: green;
-    border-bottom: 2px solid green;
-}
-#logo{
-    flex: 1 1 100rem;
-}
-.search-bar{
-    width: 40%;
-    max-width: px;
-    display: flex;
-    align-items: center;
-    padding: 0px 10px;
-}
-.search-bar input{
-    background: white;
-    flex: 1;
-    border: 0;
-    outline: none;
-    padding: 12px 10px;
-    font-size: 20px;
-    color: #000000;
-}
-.search-bar button img{
-    width: 25px;
-}
-.search-bar button img{
-    border: none;
-    width: 60px;
-    height: 42px;
-    background: white;
-    cursor: pointer; 
-}
- /* ------------------------------------------ */
-
 
 .container_all {
     position: relative;
@@ -132,13 +64,13 @@ div > ul > li:hover{
     text-align: center;
 }
 
-.input-group, .textarea-group
-{
+.input-group,
+.textarea-group {
     padding: 1% 0;
 }
 
-input, textarea
-{
+input,
+textarea {
     color: inherit;
     width: 100%;
     background-color: transparent;
@@ -148,19 +80,17 @@ input, textarea
     font-size: 20px;
 }
 
-input:focus, textarea:focus
-{
+input:focus,
+textarea:focus {
     background-color: transparent;
     outline: transparent;
     border-bottom: 2px solid #285430;
 }
 
-input::placeholder, textarea::placeholder
-{
+input::placeholder,
+textarea::placeholder {
     color: transparent;
 }
-
-
 
 .name {
     display: flex;
@@ -263,3 +193,65 @@ input::placeholder, textarea::placeholder
     outline: none;
 }
 
+.heading {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.body-text {
+    display: flex;
+    font-family: "Montserrat", sans-serif;
+    align-items: center;
+    justify-content: center;
+    margin-top: 250px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: teal;
+    font-family: "Montserrat", sans-serif;
+}
+
+.heading {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 20px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 14px 16px;
+}
+
+.nav-links a:hover:not(.active) {
+    background-color: lightseagreen;
+}
+
+.nav-links li a.active {
+    background-color: #4caf50;
+}

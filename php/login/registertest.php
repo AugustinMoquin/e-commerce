@@ -2,10 +2,11 @@
 
 $bddadmin = new PDO('mysql:host=127.0.0.1;dbname=e-commerce','root','root');
 
-if(isset($_POST['forminscription']))
-{
-    if(!empty($_POST['username']) AND !empty($_POST['email']) AND !empty($_POST['passwd']))
-    {
+session_start();
+
+
+if (isset($_POST['forminscription'])) {
+    if (!empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['passwd'])) {
         $username = htmlspecialchars($_POST['username']);
         $email = htmlspecialchars($_POST['email']);
         $passwd = $_POST['passwd'];
@@ -15,99 +16,76 @@ if(isset($_POST['forminscription']))
         $usernamelength = strlen($username);
         $passwdlength = strlen($passwd);
         $test=Sécuritymdp($passwd,$passwdlength);
-        if($usernamelength <= 50)
-        {
-            if(filter_var($email, FILTER_VALIDATE_EMAIL))
-            {
+        if ($usernamelength <= 50) {
+            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $requser= $bdd->prepare("SELECT * FROM users WHERE username = ?");
                 $requser->execute(array($username));
                 $userexist = $requser->rowCount();
-                if($userexist==0)
-                {
-                    if($passwd == $passwd2)
-                    {
-                        if($passwdlength >=3 )
-                        {
-                            
-                            if($test==4)
-                            {
+                if ($userexist==0) {
+                    if ($passwd == $passwd2) {
+                        if ($passwdlength >=3 ) {  
+                            if ($test==4) {
                                 $insertmbr = $bdd->prepare("INSERT INTO users(email,username,passwd) VALUES(?,?,?)");
                                 $insertmbr->execute(array($email,$username,$passwdhash));
                                 $message = "Votre compte a bien était créé";
+                            }else {
+                                $message = "Votre Mot de passe n'est pas assez sécurise , il faut des mins 
+                                , des maj , des chiffres et un caractéres spécial";
                             }
-                            else
-                            {
-                                $message = "Votre Mot de passe n'est pas assez sécurise , il faut des mins , des maj , des chiffres et un caractéres spécial";
-                            }
-                        }
-                        else
-                        {
+                        }else {
                             $message = "Votre Mdp n'est pas assez long";
                         }
 
-                    }
-                    else
-                    {
+                    }else {
                         $message ="Password incorrect";
                     }
-                }
-                else
-                {
+                }else {
                     $message ="User déja existant";
                 }
-            }
-            else
-            {
+            }else {
                 $message = "Votre adresse mail n'est pas valide !";
-            }
-
-        }
-        else
-        {
+            } 
+        }else {
             $message = "votre pseudo ne doit pas depasse 50 charactère";
-
-        }
-    }
-    else
-    {
+        }     
+    }else {
         $message ="Tous les champs doivent etre compléter";
     }
+                            
+                        
+                    
+                
+    
 }
 
-if(isset($_POST['formconnexion']))
-{
+if (isset($_POST['formconnexion'])) {
     session_start();
-    if(!empty($_POST['username']) AND !empty($_POST['passwd']))
-    {
+    if (!empty($_POST['username']) && !empty($_POST['passwd'])) {
         $username = htmlspecialchars($_POST['username']);
         $passwd = sha1($_POST['passwd']);
 
+        $requser= $bdd->prepare("SELECT * FROM users WHERE username = ? && passwd= ?");
+        $requser->execute(array($username, $passwd));
 
-                $requser= $bdd->prepare("SELECT * FROM users WHERE username = ? AND passwd= ?");
-                $requser->execute(array($username, $passwd));
-
-                $userexist = $requser->rowCount();
+        $userexist = $requser->rowCount();
                 
-                if($userexist>=1)
-                {
-                    $userinfo = $requser->fetch();
-                    $_SESSION['Id'] = $userinfo['Id'];
-                    $_SESSION['username'] = $userinfo['username'];
-                    header("Location: profil.php?id=".$_SESSION['Id']);
-                    $message= "tu es connécté";
-                    setcookie($username, 'username', time()+3600*24, '/', '', true, true);
-                    setcookie($passwd, 'password', time()+3600*24, '/', '', true, true);
-                }
-                else
-                {
-                    $message= "ce profil n'éxiste pas";
-                }
+        if ($userexist>=1){
+            $userinfo = $requser->fetch();
+            $_SESSION['Id'] = $userinfo['Id'];
+            $_SESSION['username'] = $userinfo['username'];
+            header("Location: profil.php?id=".$_SESSION['Id']);
+            $message= "tu es connécté";
+            setcookie($username, 'username', time()+3600*24, '/', '', true, true);
+            setcookie($passwd, 'password', time()+3600*24, '/', '', true, true);
+        }else {
+            $message= "ce profil n'éxiste pas";
+        }
+        
 
-    }
-    else
-    {
+    }else {
         $message ="Tous les champs doivent etre compléter";
     }
+    
 }
 
 function Sécuritymdp($passwd,$passwdlength):int
@@ -116,28 +94,22 @@ function Sécuritymdp($passwd,$passwdlength):int
     $securitymaj=0;
     $securityspe=0;
     $securitynum =0;
-    for($i = 0; $i < $passwdlength; $i++)
-    {
+    for ($i = 0; $i < $passwdlength; $i++) {
         $lettre = $passwd[$i];
-        if ($lettre>='a' && $lettre<='z')
-        {
+        if ($lettre>='a' && $lettre<='z') {
             $security = 0;
             $security =$security+1 ;
-        }
-        elseif($lettre>='A' && $lettre <='Z')
-        {
+        }elseif ($lettre>='A' && $lettre <='Z') {
             $securitymaj=0;
             $securitymaj =$securitymaj+1 ;
-        }
-        else if ($lettre>='0' && $lettre<='9')
-        {
+        }elseif ($lettre>='0' && $lettre<='9') {
             $securitynum =0;
             $securitynum =$securitynum+1 ;
-        }
-        else{
+        }else {
             $securityspe=0;
             $securityspe =$securityspe+1 ;
         }
+       
         $final = $securityspe+$securitynum+$securitymaj+$security;
     }
     return $final;

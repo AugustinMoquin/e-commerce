@@ -19,9 +19,12 @@ if ($url == "" || $url == "home" || $url == "accueil") {
     require "$root/product_page/produit.php";
 }elseif ($url[0] == "compte") {
     require "$root/login/profil.php";
+}elseif ($url[0] == "register-login") {
+    require "$root/login/connection.php";
 }else {
     require "$root/accueil/accueil.php";
 }
+
 
 
 

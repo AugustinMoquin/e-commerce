@@ -3,52 +3,53 @@
   $bdd = new PDO('mysql:host=127.0.0.1;dbname=e-commerce','root','root');
   session_start();
 
-  if(isset($_GET['id']) AND $_GET['id'] > 0) {
-    $getid = intval($_GET['id']);
+  if ($_SESSION['Id'] > 0) {
+    $getid = intval($_SESSION['Id']);
     $requser= $bdd->prepare('SELECT * FROM users WHERE id = ?');
     $requser->execute(array($getid));
     $userinfo = $requser->fetch();
 
 
     // Mise à jour des informations de profil
-    if(isset($_POST["update-profil"])) {
+    if (isset($_POST["update-profil"])) {
       // Email
-      if(isset($_POST['email']) AND !empty($_POST['email']) AND $_POST['email'] != $userinfo['email']) {
+      if (isset($_POST['email']) && !empty($_POST['email']) && $_POST['email'] != $userinfo['email']) {
         $newemail = htmlspecialchars($_POST['email']);
         $insertemail = $bdd->prepare("UPDATE users SET email = ? WHERE id = ?");
         $insertemail->execute(array($newemail, $getid));
       }
 
       // Age
-      if(isset($_POST['age']) AND !empty($_POST['age']) AND $_POST['age'] != $userinfo['age']) {
+      if (isset($_POST['age']) && !empty($_POST['age']) && $_POST['age'] != $userinfo['age']) {
         $newage = htmlspecialchars($_POST['age']);
         $insertage = $bdd->prepare("UPDATE users SET age = ? WHERE id = ?");
         $insertage->execute(array($newage, $getid));
       }
 
       // Adresse
-      if(isset($_POST['adresse']) AND !empty($_POST['adresse']) AND $_POST['adresse'] != $userinfo['adresse']) {
+      if (isset($_POST['adresse']) && !empty($_POST['adresse']) && $_POST['adresse'] != $userinfo['adresse']) {
         $newadresse = htmlspecialchars($_POST['adresse']);
         $insertadresse = $bdd->prepare("UPDATE users SET adresse = ? WHERE id = ?");
         $insertadresse->execute(array($newadresse, $getid));
       }
 
       // Ville
-      if(isset($_POST['ville']) AND !empty($_POST['ville']) AND $_POST['ville'] != $userinfo['ville']) {
+      if (isset($_POST['ville']) && !empty($_POST['ville']) && $_POST['ville'] != $userinfo['ville']) {
         $newville = htmlspecialchars($_POST['ville']);
         $insertville = $bdd->prepare("UPDATE users SET ville = ? WHERE id = ?");
         $insertville->execute(array($newville, $getid));
       }
 
       // Pays
-      if(isset($_POST['pays']) AND !empty($_POST['pays']) AND $_POST['pays'] != $userinfo['pays']) {
+      if (isset($_POST['pays']) && !empty($_POST['pays']) && $_POST['pays'] != $userinfo['pays']) {
         $newpays = htmlspecialchars($_POST['pays']);
         $insertpays = $bdd->prepare("UPDATE users SET pays = ? WHERE id = ?");
         $insertpays->execute(array($newpays, $getid));
         setcookie('pays',$userinfo['pays'], time()+3600*24, '/', '', true, true);
       }
 
-      if(isset($_POST['newpassword']) AND !empty($_POST['newpassword']) AND isset($_POST['confirmpassword']) AND !empty($_POST['confirmpassword'])) {
+      if (isset($_POST['newpassword']) && !empty($_POST['newpassword']) 
+      && isset($_POST['confirmpassword']) && !empty($_POST['confirmpassword'])) {
         if($_POST['newpassword'] == $_POST['confirmpassword']) {
           $newpassword = ($_POST['newpassword']);
           $passwdlength = strlen($newpassword);
@@ -69,36 +70,30 @@
     }
 }
 
-  function Sécuritymdp($newpassword,$passwdlength):int
+function Sécuritymdp($newpassword,$passwdlength):int
 {
     $security = 0;
     $securitymaj=0;
     $securityspe=0;
     $securitynum =0;
-    for($i = 0; $i < $passwdlength; $i++)
-    {
+    for ($i = 0; $i < $passwdlength; $i++) {
         $lettre = $newpassword[$i];
-        if ($lettre>='a' && $lettre<='z')
-        {
+        if ($lettre>='a' && $lettre<='z') {
             $security = 0;
             $security =$security+1 ;
-        }
-        elseif($lettre>='A' && $lettre <='Z')
-        {
+        }elseif ($lettre>='A' && $lettre <='Z') {
             $securitymaj=0;
             $securitymaj =$securitymaj+1 ;
-        }
-        else if ($lettre>='0' && $lettre<='9')
-        {
+        }elseif ($lettre>='0' && $lettre<='9') {
             $securitynum =0;
             $securitynum =$securitynum+1 ;
-        }
-        else{
+        }else {
             $securityspe=0;
             $securityspe =$securityspe+1 ;
         }
         $final = $securityspe+$securitynum+$securitymaj+$security;
     }
+    
     return $final;
 }
 
@@ -108,33 +103,64 @@
 <html>
   <head>
     <title>Profil</title>
-    <link rel="stylesheet" href="/E-commerce/php/login/assets/profilstyle.css">
+    <link rel="stylesheet" href="/e-commerce/php/login/assets/profilstyle.css">
   </head>
   <body>
+  <nav>
+
+  <div class="heading">
+
+    <h4 style="" >Kermit & Ci</h4>
+    <img src="../php/images/icons8-monkas-48.png" alt="img" class="logo">
+
+
+  </div>
+
+  <ul class="nav-links">
+
+    <li><a href="/e-commerce/php/">Home</a></li>
+
+    <li><a href="/e-commerce/php/compte">Compte</a></li>
+
+    <li><a class="active" href="services.html">Favoris</a></li>
+
+    <li><a href="">Panier</a></li>
+
+  </ul>
+
+  </nav>
+
+
     <div class="profil">
       <div class="profil__avatar"></div>
-      <div class="profil__nom"><?php if(isset($userinfo)) { echo "Profil de : " , $userinfo['username']; } else { echo "Nom d'utilisateur"; }?></div>
+      <div class="profil__nom"><?php if (isset($userinfo)) { echo "Profil de : " 
+        , $userinfo['username']; } else { echo "Nom d'utilisateur"; }?></div>
       <div class="profil__information">
         <form  class="input-group"  method="POST">
           <div class="profil__info__item profil__info__item--email">
             <label for="email">Email:</label>
-            <input type="email" name="email" value="<?php if(isset($userinfo)) { echo $userinfo['email']; } else { echo ""; }?>">
+            <input type="email" name="email" value="<?php if (isset($userinfo)) 
+            { echo $userinfo['email']; } else { echo ""; }?>">
           </div>
           <div class="profil__info__item profil__info__item--age">
             <label for="age">Âge:</label>
-            <input type="text" name="age" id="age" value="<?php if(isset($userinfo)) { echo $userinfo['age']; } else { echo ""; }  ?>">
+            <input type="text" name="age" id="age" 
+            value="<?php if (isset($userinfo)) { echo $userinfo['age']; } else { echo ""; }  ?>">
           </div>
           <div class="profil__info__item profil__info__item--adresse">
             <label for="adresse">Adresse:</label>
-            <input type="text" name="adresse" id="adresse" value="<?php if(isset($userinfo)) { echo $userinfo['adresse']; } else { echo ""; } ?>">
+            <input type="text" name="adresse" id="adresse" 
+            value="<?php if (isset($userinfo)) { echo $userinfo['adresse']; } else { echo ""; } ?>">
           </div>
           <div class="profil__info__item profil__info__item--ville">
             <label for="ville">Ville:</label>
-            <input type="text" name="ville" id="ville" value="<?php if(isset($userinfo)) { echo $userinfo['ville']; } else { echo ""; } ?>">
+            <input type="text" name="ville" id="ville" 
+            value="<?php if (isset($userinfo)) { echo $userinfo['ville']; } else { echo ""; } ?>">
           </div>
           <div class="profil__info__item profil__info__item--pays">
             <label for="pays">Pays:</label>
-            <input type="text" name="pays" id="pays" value="<?php if(isset($userinfo)) { echo $userinfo['pays']; } else { echo ""; }  ?>">
+            <input type="text" name="pays" id="pays" 
+            value="<?php if (isset($userinfo)) { echo $userinfo['pays']; } else { echo ""; }  ?>">
           </div>
           <div class="profil__info__item profil__info__item--submit">
           </div>
@@ -155,6 +181,11 @@
         <a href="/historique-achat"><strong>Voir l'historique d'achat</strong><br>
           Panier:
         </a>
+      </div>
+      <div class="deconnexion">
+        <form method = "post" action = "/e-commerce/php/login/assets/php/deconnexion.php">
+          <input type="submit" value="deconnexion">
+        </form>
       </div>
     </div>
   </body>
