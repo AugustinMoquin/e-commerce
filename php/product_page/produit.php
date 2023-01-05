@@ -1,5 +1,4 @@
 <?php
-    
     $bdd = new PDO('mysql:host=127.0.0.1;dbname=e-commerce', 'root', 'root');
     session_start();
 
@@ -77,7 +76,12 @@
             <div class="product-price">
                 <p>Prix : <span class="price"><?php  echo $userinfo['regular_price']; ?></span></p>
             </div>
-            <button class="add-to-cart">Ajouter au panier</button>
+
+            <form action='/e-commerce/php/panier/ajout_panier.php' method='post'>
+                <input type='hidden' name='id_produit' value='<?php echo $userinfo['Id'] ?>'>
+                <input type='submit' class='add-to-cart' placeholder='Ajouter au panier'>
+            </form>
+
             </div>
         </div>
         </div>
