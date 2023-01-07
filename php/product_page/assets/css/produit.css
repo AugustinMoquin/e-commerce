@@ -5,9 +5,27 @@ body {
     margin: center;
 }
 
+.container_all {
+    top: calc(50% - 17.5rem);
+    height: 35rem;
+    position: absolute;
+    width: 40vw;
+    display: flex;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(229, 217, 182);
+    display: flex;
+    padding: 3rem;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-image: initial;
+    border-radius: 10px;
+    gap: 3rem;
+}
+
 .product-page {
     display: flex;
-    flex-direction: column;
 }
 
 .product-header {
@@ -20,10 +38,11 @@ body {
     margin: 0;
 }
 
-.product-section {
+
+/* .product-section {
     display: flex;
     flex-direction: row;
-}
+} */
 
 .product-image-container {
     width: 30%;
@@ -36,10 +55,8 @@ body {
 }
 
 .product-info {
-    width: 70%;
     display: flex;
     flex-direction: column;
-    padding: 5em;
 }
 
 .product-description {
@@ -64,31 +81,16 @@ body {
 
 .add-to-cart {
     display: block;
-    width: 100%;
+    position: absolute;
+    width: auto;
     padding: 0.5em;
     background-color: #333;
     color: #fff;
     font-size: 1.2em;
     border: none;
     cursor: pointer;
-}
-
-.container_all {
-    top: calc(50% - 17.5rem);
-    height: 35rem;
-    position: absolute;
-    width: auto;
-    margin-left: 50%;
-    transform: translateX(-50%);
-    background-color: rgb(229, 217, 182);
-    display: flex;
-    padding: 3rem;
-    border-width: 1px;
-    border-style: solid;
-    border-color: black;
-    border-image: initial;
-    border-radius: 10px;
-    gap: 3rem;
+    bottom: 2rem;
+    right: 2rem;
 }
 
 .heading {
@@ -158,6 +160,7 @@ nav {
 /*** fin nav ***/
 
 .fav {
+    position: absolute;
     background: url('https://www.svgrepo.com/show/473870/heart.svg') no-repeat;
     cursor: pointer;
     width: 300px;

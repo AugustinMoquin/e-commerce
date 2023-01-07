@@ -35,6 +35,9 @@ $conn = openCon();
 
   <li><a href="/e-commerce/php/panier_user">Panier</a></li>
 
+  <li><a href="/e-commerce/php/ajout_de_produit/">Ajout</a></li>
+
+
 </ul>
 
 </nav>

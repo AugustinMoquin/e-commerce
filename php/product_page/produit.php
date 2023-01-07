@@ -30,7 +30,7 @@
    
     <body class="green-background">
 
-    <nav>
+<nav>
 
 <div class="heading">
 
@@ -55,45 +55,43 @@
 </nav>
 
     <div class="container_all">
-            <div class="product-page">
-        <div class="product-header">
-            <h1 class="product-title"><?php  echo $userinfo['NAME']; ?></h1>
-        </div>
-        <div class="product-section">
-            <div class="product-image-container">
-                <img src="<?php  echo $userinfo['images_path']; ?>" class = "main-image" alt="Image">
-            </div>
-            <div class="product-info">
-                
-                <form action='/e-commerce/php/favoris/ajout_favoris.php' method='post' >
-                    <input type='hidden' name='id_produit' value='<?php echo $userinfo['Id'] ?>'>
-                    <input type='submit' class='add-to-cart' placeholder='Ajouter au panier' class="fav">
-                </form>
-
-            <div class="product-description">description
-                <p><?php  echo $userinfo['description']; ?></p>
-            </div>
-
-
-            <div class="product-quantity">
-                <label for="quantity">Quantité :</label>
-                <div class="quantity">
-                    <p><?php  echo $userinfo['quantity']; ?></p>
+        <div class="product-page">
+            <div class="product-header">
+                <h1 class="product-title"><?php  echo $userinfo['NAME']; ?></h1>
+                <div class="product-image-container">
+                    <img src="<?php  echo $userinfo['images_path']; ?>" class = "main-image" alt="Image">
                 </div>
             </div>
-            <div class="product-price">
-                <p>Prix : <span class="price"><?php  echo $userinfo['regular_price']; ?> €</span></p>
+            <div class="product-section">
+                <div class="product-info">
+                    
+                    <form action='/e-commerce/php/favoris/ajout_favoris.php' method='post' >
+                        <input type='hidden' name='id_produit' value='<?php echo $userinfo['Id'] ?>'>
+                        <input type='submit' class='add-to-favorite' placeholder='Ajouter aux favoris' class="fav">
+                    </form>
+
+                <div class="product-description">Description :
+                    <p> </p>
+                    <p><?php  echo $userinfo['description']; ?></p>
+                </div>
+
+
+                <div class="product-quantity">
+                    <label for="quantity">Quantité :</label>
+                    <div class="quantity">
+                        <p><?php  echo $userinfo['quantity']; ?></p>
+                    </div>
+                </div>
+                <div class="product-price">
+                    <p>Prix : <span class="price"><?php  echo $userinfo['regular_price']; ?> €</span></p>
+                </div>
+
+                <form action='/e-commerce/php/panier/ajout_panier.php' method='post'>
+                    <input type='hidden' name='id_produit' value='<?php echo $userinfo['Id'] ?>'>
+                    <button type='submit' class='add-to-cart' placeholder='Ajouter au panier'>Ajouter au panier</button>
+                </form>
+                </div>
             </div>
-
-            <form action='/e-commerce/php/panier/ajout_panier.php' method='post'>
-                <input type='hidden' name='id_produit' value='<?php echo $userinfo['Id'] ?>'>
-                <button type='submit' class='add-to-cart' placeholder='Ajouter au panier'>Ajouter au panier</button>
-            </form>
-
-            
-
-            </div>
-        </div>
         </div>
     </div>
     </body>

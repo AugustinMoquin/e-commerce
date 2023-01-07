@@ -1,5 +1,5 @@
 <?php
-    require("ajout_produit.php");
+    require_once ("ajout_produit.php");
 ?>
     
     
