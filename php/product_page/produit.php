@@ -64,9 +64,17 @@
                 <img src="<?php  echo $userinfo['images_path']; ?>" class = "main-image" alt="Image">
             </div>
             <div class="product-info">
+                
+                <form action='/e-commerce/php/favoris/ajout_favoris.php' method='post' >
+                    <input type='hidden' name='id_produit' value='<?php echo $userinfo['Id'] ?>'>
+                    <input type='submit' class='add-to-cart' placeholder='Ajouter au panier' class="fav">
+                </form>
+
             <div class="product-description">description
                 <p><?php  echo $userinfo['description']; ?></p>
             </div>
+
+
             <div class="product-quantity">
                 <label for="quantity">Quantité :</label>
                 <div class="quantity">
@@ -74,18 +82,15 @@
                 </div>
             </div>
             <div class="product-price">
-                <p>Prix : <span class="price"><?php  echo $userinfo['regular_price']; ?></span></p>
+                <p>Prix : <span class="price"><?php  echo $userinfo['regular_price']; ?> €</span></p>
             </div>
 
             <form action='/e-commerce/php/panier/ajout_panier.php' method='post'>
                 <input type='hidden' name='id_produit' value='<?php echo $userinfo['Id'] ?>'>
-                <input type='submit' class='add-to-cart' placeholder='Ajouter au panier'>
+                <button type='submit' class='add-to-cart' placeholder='Ajouter au panier'>Ajouter au panier</button>
             </form>
 
-            <form action='/e-commerce/php/favoris/ajout_favoris.php' method='post'>
-                <input type='hidden' name='id_produit' value='<?php echo $userinfo['Id'] ?>'>
-                <input type='submit' class='add-to-cart' placeholder='Ajouter au panier'>
-            </form>
+            
 
             </div>
         </div>

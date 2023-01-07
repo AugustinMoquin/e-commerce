@@ -53,7 +53,7 @@
                 header('Location: /e-commerce/php/ajout_de_produit/');
 
             } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
+                $message =  "Error: " . $sql . "<br>" . $conn->error;
             }
         } else {
             $message = "Error While uploading image on the server";
@@ -62,6 +62,7 @@
         
     }else {
         $message = "rentrez toutes les inforations";
+        header('Location: /e-commerce/php/ajout_de_produit');
     }
 closeCon($conn);
 

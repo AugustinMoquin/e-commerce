@@ -49,6 +49,7 @@ body {
 
 .product-quantity {
     margin-bottom: 1em;
+    display: flex;
 }
 
 .product-price {
@@ -73,6 +74,9 @@ body {
 }
 
 .container_all {
+    top: calc(50% - 17.5rem);
+    height: 35rem;
+    position: absolute;
     width: auto;
     margin-left: 50%;
     transform: translateX(-50%);
@@ -148,4 +152,15 @@ nav {
 
 .nav-links li a.active {
     background-color: #4caf50;
+}
+
+
+/*** fin nav ***/
+
+.fav {
+    background: url('https://www.svgrepo.com/show/473870/heart.svg') no-repeat;
+    cursor: pointer;
+    width: 300px;
+    height: 200px;
+    border: none;
 }
