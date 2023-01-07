@@ -5,7 +5,7 @@ $conn = openCon();
 $IdProduct = $_GET["id"];
 echo $IdProduct;
 
-$sql = "DELETE FROM panier WHERE id = '$IdProduct'";
+$sql = "DELETE FROM favoris WHERE id = '$IdProduct'";
 $result = $conn->query($sql);
 
 if ($conn->query($sql) === true) {
@@ -16,6 +16,6 @@ if ($conn->query($sql) === true) {
 
 $conn->close();
 
-header('Location: http://localhost:8080/e-commerce/php/panier_user');
+header('Location: http://localhost:8080/e-commerce/php/favoris_user');
 
 ?>

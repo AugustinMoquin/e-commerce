@@ -32,33 +32,30 @@
         $res->execute(array($panierUser['id_product']));
 
         if ($res->rowCount() > 0) {
-            while ($panierUser = $requser->fetch()) {
+            for ($i = 0; $i < $res->rowCount(); $i++) {
                 
-
                 $requprod = $conn->prepare("SELECT * FROM products WHERE Id = ?");
-                $requprod->execute(array($panierUser['id_product']));          
+                $requprod->execute(array($panierUser['id_product']));   
+                
+                $row = $res->fetch();
 
-                $sql = "SELECT * FROM products WHERE Id = '$id_prod'";
-                $result = $conn->query($sql);
 
-
-                if ($res->rowCount() > 0) {
-                    while ($row = $requprod->fetch()) {
-                        echo  "<a class='ind_products' 
-                        href='/e-commerce/php/produit/". $row["Id"]."'>
-                        <div class='ind_products' name='". $row["Id"]."'>  
-                        <img class='img' src='../php". $row["images_path"]."'>
-                        <div class='info'> Nom: " . $row["NAME"]. "<br> </div>
-                        <div class='info'> Price: " . $row["regular_price"]. " <br> </div>
-                        <div class='info'> discount: " . $row["discount_price"]. "<br>  </div>
-                        </div> 
-                        </a>
-                        <form action='/e-commerce/php/panier/delete.php' method='get'>
-                        <input type='hidden' name='id' value=" . $id_prod_panier . ">
-                        <button type='submit'>Supprimer</button>
-                        </form>";
-                    }
+                for ($j = 0; $j < $res->rowCount(); $j++) {
+                    echo  "<a class='ind_products' 
+                    href='/e-commerce/php/produit/". $row["Id"]."'>
+                    <div class='ind_products' name='". $row["Id"]."'>  
+                    <img class='img' src='../php". $row["images_path"]."'>
+                    <div class='info'> Nom: " . $row["NAME"]. "<br> </div>
+                    <div class='info'> Price: " . $row["regular_price"]. " <br> </div>
+                    <div class='info'> discount: " . $row["discount_price"]. "<br>  </div>
+                    </div> 
+                    </a>
+                    <form action='/e-commerce/php/panier/delete.php' method='get'>
+                    <input type='hidden' name='id' value=" . $id_prod_panier . ">
+                    <button type='submit'>Supprimer</button>
+                    </form>";
                 }
+                
             }
         }else {
             echo "vos favoris sont vides";
