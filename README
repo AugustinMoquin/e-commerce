@@ -3,12 +3,10 @@ TO DO :
 -reparer ajout produit (FAIT)
 -reparer page profile (FAIT)
 -panier (EN COURS)
--historique des commandes
+-historique des commandes (EN COURS)
 -redesign
 -categories et filtres
-
-nom chemin:
-admin_panel = panneau_admin
+-favoris
 
 
 

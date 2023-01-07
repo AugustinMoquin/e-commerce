@@ -31,9 +31,9 @@ $conn = openCon();
 
   <li><a href="/e-commerce/php/compte">Compte</a></li>
 
-  <li><a class="active" href="services.html">Favoris</a></li>
+  <li><a class="active" href="/e-commerce/php/favoris_user">Favoris</a></li>
 
-  <li><a href="">Panier</a></li>
+  <li><a href="/e-commerce/php/panier_user">Panier</a></li>
 
 </ul>
 

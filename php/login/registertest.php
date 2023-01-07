@@ -59,14 +59,12 @@ if (isset($_POST['forminscription'])) {
 }
 
 if (isset($_POST['formconnexion'])) {
-    session_start();
     if (!empty($_POST['username']) && !empty($_POST['passwd'])) {
         $username = htmlspecialchars($_POST['username']);
         $passwd = sha1($_POST['passwd']);
 
         $requser= $bdd->prepare("SELECT * FROM users WHERE username = ? && passwd= ?");
         $requser->execute(array($username, $passwd));
-
         $userexist = $requser->rowCount();
                 
         if ($userexist>=1){
@@ -75,8 +73,9 @@ if (isset($_POST['formconnexion'])) {
             $_SESSION['username'] = $userinfo['username'];
             header("Location: profil.php?id=".$_SESSION['Id']);
             $message= "tu es connécté";
-            setcookie($username, 'username', time()+3600*24, '/', '', true, true);
-            setcookie($passwd, 'password', time()+3600*24, '/', '', true, true);
+            setcookie('username', $username, time()+3600*24, '/', '', true, true);
+            setcookie('password', $passwd, time()+3600*24, '/', '', true, true);
+            setcookie('id', $userinfo['Id'], time()+3600*24, '/', '', true, true);
         }else {
             $message= "ce profil n'éxiste pas";
         }

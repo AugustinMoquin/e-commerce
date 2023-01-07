@@ -82,6 +82,11 @@
                 <input type='submit' class='add-to-cart' placeholder='Ajouter au panier'>
             </form>
 
+            <form action='/e-commerce/php/favoris/ajout_favoris.php' method='post'>
+                <input type='hidden' name='id_produit' value='<?php echo $userinfo['Id'] ?>'>
+                <input type='submit' class='add-to-cart' placeholder='Ajouter au panier'>
+            </form>
+
             </div>
         </div>
         </div>

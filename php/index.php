@@ -21,9 +21,15 @@ if ($url == "" || $url == "home" || $url == "accueil") {
     require "$root/login/profil.php";
 }elseif ($url[0] == "register-login") {
     require "$root/login/connection.php";
+}elseif ($url[0] == "panier_user") {
+    require "$root/panier/panier_user.php";
+}elseif ($url[0] == "favoris_user") {
+    require "$root/favoris/favoris.php";
 }else {
     require "$root/accueil/accueil.php";
 }
+
+    
 
 
 
