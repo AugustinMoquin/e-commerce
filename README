@@ -1,4 +1,12 @@
 TO DO :
+-order history
+-product page (FAIT)
+-page admin (FAIT)
+-contact page (FAIT)
+-market place (FAIT)
+-modify user account (FAIT)
+-Whishlist (FAIT)
+-Login and register (FAIT)
 -connection en tant que admin ou utilisateur
 -reparer ajout produit (FAIT)
 -reparer page profile (FAIT)
@@ -10,88 +18,3 @@ TO DO :
 
 
 
-
-
-
-
-
-
-
-
-
-
-CREATE TABLE IF NOT EXISTS Users(
-    Id INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    username VARCHAR(255) NOT NULL,
-    passwd VARCHAR(50) NOT NULL,
-    active BOOLEAN DEFAULT TRUE,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    inserted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
-CREATE TABLE IF NOT EXISTS roles(
-    Id INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    NAME VARCHAR(255) NOT NULL,
-    inserted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
-CREATE TABLE IF NOT EXISTS user_role(
-    user_id INTEGER NOT NULL,
-    role_id INTEGER NOT NULL,
-    inserted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
-CREATE TABLE IF NOT EXISTS address(
-    Id INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    CustomerId INT,
-    FLOOR INTEGER,
-    Street VARCHAR(80) NOT NULL,
-    NumberStreet INTEGER,
-    City VARCHAR(20),
-    Country VARCHAR(30)
-);
-CREATE TABLE IF NOT EXISTS products(
-    Id INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    sku VARCHAR(255) NOT NULL,
-    NAME VARCHAR(255) NOT NULL,
-    description TEXT,
-    product_status_id INTEGER NOT NULL,
-    regular_price NUMERIC DEFAULT 0,
-    discount_price NUMERIC DEFAULT 0,
-    quantity INTEGER DEFAULT 0,
-    taxable BOOLEAN DEFAULT FALSE,
-    product_status Varchar(50),
-    category varchar(50),
-    inserted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
-CREATE TABLE IF NOT EXISTS Cart(
-    Id INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    Quantity INTEGER,
-    Total INTEGER,
-    id_article INTEGER,
-    id_user INTEGER,
-    FOREIGN KEY(id_user) REFERENCES Users(Id),
-    FOREIGN KEY(id_article) REFERENCES products(Id)
-);
-CREATE TABLE IF NOT EXISTS Command(
-    Id INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    CustomerId INT,
-    FOREIGN KEY(CustomerId) REFERENCES users(Id),
-    DATE TIME,
-    Montant INT,
-    address VARCHAR(100),
-    Total INT,
-    Delivery TIME
-);
-CREATE TABLE IF NOT EXISTS invoices(
-    Id INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    CustomerId INT,
-    InvoiceDate VARCHAR(50),
-    BillingAddress VARCHAR(50),
-    BillingState VARCHAR(50),
-    BillingCountry VARCHAR(50),
-    BillingPostalCode VARCHAR(50),
-    Total INT,
-    FOREIGN KEY(CustomerId) REFERENCES users(Id)
-);
