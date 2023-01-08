@@ -1,0 +1,23 @@
+body {
+    margin: 0px;
+}
+
+.container {
+    background-color: rgb(121, 240, 151);
+    height: 100vw;
+    width: 100vw;
+}
+
+.ind_products {
+    height: 10rem;
+    width: 30%;
+    display: flex;
+    gap: 1rem;
+    vertical-align: middle;
+}
+
+.info {}
+
+.image {
+    object-fit: contain;
+}
