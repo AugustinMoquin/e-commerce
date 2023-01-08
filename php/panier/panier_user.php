@@ -24,49 +24,48 @@
         $requser->execute(array($id));
 
 
-        if ($panierUser = $requser->fetch()) {
-            
-            $id_prod = $panierUser['id_product'];
-            $id_prod_panier = $panierUser['id'];
-            
-            $res = $conn->prepare("SELECT * FROM products WHERE Id = ?");
-            $res->execute(array($panierUser['id_product']));
-            
-            if ($res->rowCount() > 0) {
-                for ($i = 0; $i < $res->rowCount(); $i++) {
-                    
+        while ($panierUser = $requser->fetch()) {
+                $id_prod = $panierUser['id_product'];
+                $id_prod_panier = $panierUser['id'];
+                
+                $res = $conn->prepare("SELECT * FROM products WHERE Id = ?");
+                $res->execute(array($panierUser['id_product']));
+                
+                if ($res->rowCount() > 0) {
+                    for ($i = 0; $i < $res->rowCount(); $i++) {
+                        
 
-                    $requprod = $conn->prepare("SELECT * FROM products WHERE Id = ?");
-                    $requprod->execute(array($panierUser['id_product']));          
+                        $requprod = $conn->prepare("SELECT * FROM products WHERE Id = ?");
+                        $requprod->execute(array($panierUser['id_product']));          
 
-                    $sql = "SELECT * FROM products WHERE Id = '$id_prod'";
-                    $result = $conn->query($sql);
+                        $sql = "SELECT * FROM products WHERE Id = '$id_prod'";
+                        $result = $conn->query($sql);
 
-                    $row = $res->fetch();
+                        $row = $res->fetch();
 
-                    if ($res->rowCount() > 0) {
-                        for ($j = 0; $j < $res->rowCount(); $j++) {
-                            echo  "<a class='ind_products' 
-                            href='/e-commerce/php/produit/". $row["Id"]."'>
-                            <div class='ind_products' name='". $row["Id"]."'>  
-                            <img class='img' src='../php". $row["images_path"]."'>
-                            <div class='info'> Nom: " . $row["NAME"]. "<br> </div>
-                            <div class='info'> Price: " . $row["regular_price"]. " <br> </div>
-                            <div class='info'> discount: " . $row["discount_price"]. "<br>  </div>
-                            </div> 
-                            </a>
-                            <form action='/e-commerce/php/panier/delete.php' method='get'>
-                            <input type='hidden' name='id' value=" . $id_prod_panier . ">
-                            <button type='submit'>Supprimer</button>
-                            </form>";
+                        if ($res->rowCount() > 0) {
+                            for ($j = 0; $j < $res->rowCount(); $j++) {
+                                echo  "<a class='ind_products' 
+                                href='/e-commerce/php/produit/". $row["Id"]."'>
+                                <div class='ind_products' name='". $row["Id"]."'>  
+                                <img class='img' src='../php". $row["images_path"]."'>
+                                <div class='info'> Nom: " . $row["NAME"]. "<br> </div>
+                                <div class='info'> Price: " . $row["regular_price"]. " <br> </div>
+                                <div class='info'> discount: " . $row["discount_price"]. "<br>  </div>
+                                </div> 
+                                </a>
+                                <form action='/e-commerce/php/panier/delete.php' method='get'>
+                                <input type='hidden' name='id' value=" . $id_prod_panier . ">
+                                <button type='submit'>Supprimer</button>
+                                </form>";
+                            }
                         }
                     }
                 }
+                echo "<button class='commande' href='/e-commerce/php/panier/order.php'></button>";
             }
-        }else {
-            echo "votre panier est vide";
-        }
-
+        
+         
     ?>
     </div>
     

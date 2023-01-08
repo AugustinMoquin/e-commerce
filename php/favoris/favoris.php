@@ -23,7 +23,7 @@
         $requser= $conn->prepare("SELECT * FROM favoris WHERE id_user = ?");
         $requser->execute(array($id));
 
-        if ($panierUser = $requser->fetch()) {
+        while ($panierUser = $requser->fetch()) {
             $id_prod = $panierUser['id_product'];
             $id_prod_panier = $panierUser['id'];
 
@@ -58,8 +58,6 @@
                     
                 }
             }
-        }else {
-            echo "vos favoris sont vides";
         }
         
 
