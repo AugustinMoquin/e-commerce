@@ -13,7 +13,7 @@ if (isset($_POST['id_produit']) && $_COOKIE["username"] > 0) {
     VALUES ('$id', '$var')";
     if ($conn->query($query_upload) === true) {
         $message = "element ajouté au panier";
-        header('Location: /e-commerce/php/compte');
+        header('Location: /e-commerce/php/');
 
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;

@@ -2,7 +2,16 @@
     require_once ("ajout_produit.php");
 ?>
     
-    
+<?php 
+if (isset($_COOKIE['id'])) {
+    $id = $_COOKIE['id'];
+    if ($id != 7) {
+  
+    echo "page non accessible";
+    header('location: /e-commerce/php/');
+    }
+}
+?> 
     
     
     <!DOCTYPE html>
@@ -18,29 +27,6 @@
 
     <body>
 
-    <nav>
-
-    <div class="heading">
-
-    <h4 >Kermit & Ci</h4>
-    <img src="../../php/images/icons8-monkas-48.png" alt="img" class="logo">
-
-
-    </div>
-
-    <ul class="nav-links">
-
-    <li><a href="/e-commerce/php/">Home</a></li>
-
-    <li><a href="/e-commerce/php/contact_us">Compte</a></li>
-
-    <li><a class="active" href="services.html">Favoris</a></li>
-
-    <li><a href="">Panier</a></li>
-
-    </ul>
-
-    </nav>
 
         <div class="container">
             <div class="container_all">

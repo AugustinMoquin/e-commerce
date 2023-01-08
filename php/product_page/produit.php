@@ -30,30 +30,6 @@
    
     <body class="green-background">
 
-<nav>
-
-<div class="heading">
-
-  <h4 style="" >Kermit & Ci</h4>
-  <img src="../images/icons8-monkas-48.png" alt="img" class="logo">
-
-
-</div>
-
-<ul class="nav-links">
-
-  <li><a href="/e-commerce/php/">Home</a></li>
-
-  <li><a href="/e-commerce/php/contact_us">Compte</a></li>
-
-  <li><a class="active" href="services.html">Favoris</a></li>
-
-  <li><a href="">Panier</a></li>
-
-</ul>
-
-</nav>
-
     <div class="container_all">
         <div class="product-page">
             <div class="product-header">

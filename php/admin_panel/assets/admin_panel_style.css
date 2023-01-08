@@ -1,5 +1,11 @@
 body {
     margin: 0px;
+    display: flex;
+}
+
+.all_user {
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -15,6 +21,7 @@ header {
 
 .ind_user {
     display: flex;
+    flex-direction: row;
     gap: 0.5rem;
 }
 

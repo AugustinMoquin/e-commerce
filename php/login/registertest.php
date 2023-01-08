@@ -67,11 +67,11 @@ if (isset($_POST['formconnexion'])) {
         $requser->execute(array($username, $passwd));
         $userexist = $requser->rowCount();
                 
-        if ($userexist>=1){
+        if ($userexist>=1) {
             $userinfo = $requser->fetch();
             $_SESSION['Id'] = $userinfo['Id'];
             $_SESSION['username'] = $userinfo['username'];
-            header("Location: profil.php?id=".$_SESSION['Id']);
+            header("Location: /e-commerce/php/compte");
             $message= "tu es connécté";
             setcookie('username', $username, time()+3600*24, '/', '', true, true);
             setcookie('password', $passwd, time()+3600*24, '/', '', true, true);

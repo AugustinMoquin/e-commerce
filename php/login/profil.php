@@ -1,10 +1,9 @@
 <?php
   // Connexion à la base de données
   $bdd = new PDO('mysql:host=127.0.0.1;dbname=e-commerce','root','root');
-  session_start();
 
-  if ($_SESSION['Id'] > 0) {
-    $getid = intval($_SESSION['Id']);
+  if (isset($_COOKIE['id']) > 0) {
+    $getid = intval($_COOKIE['id']);
     $requser= $bdd->prepare('SELECT * FROM users WHERE id = ?');
     $requser->execute(array($getid));
     $userinfo = $requser->fetch();
@@ -65,8 +64,8 @@
             }
           }
           header("Location: profil.php?id=".$getid);
-          setcookie($userinfo['email'], 'mail', time()+3600*24, '/', '', true, true);
-          setcookie($userinfo['pays'], 'pays', time()+3600*24, '/', '', true, true);
+          setcookie( 'mail', $userinfo['email'], time()+3600*24, '/', '', true, true);
+          setcookie( 'pays', $userinfo['pays'], time()+3600*24, '/', '', true, true);
     }
 }
 
@@ -106,32 +105,11 @@ function Sécuritymdp($newpassword,$passwdlength):int
     <link rel="stylesheet" href="/e-commerce/php/login/assets/profilstyle.css">
   </head>
   <body>
-  <nav>
 
-  <div class="heading">
-
-    <h4 style="" >Kermit & Ci</h4>
-    <img src="../php/images/icons8-monkas-48.png" alt="img" class="logo">
-
-
-  </div>
-
-  <ul class="nav-links">
-
-    <li><a href="/e-commerce/php/">Home</a></li>
-
-    <li><a href="/e-commerce/php/compte">Compte</a></li>
-
-    <li><a class="active" href="services.html">Favoris</a></li>
-
-    <li><a href="">Panier</a></li>
-
-  </ul>
-
-  </nav>
-
-
-    <div class="profil">
+  <?php 
+    if (isset($_COOKIE['id']) > 0) {
+  ?>
+  <div class="profil">
       <div class="profil__avatar"></div>
       <div class="profil__nom"><?php if (isset($userinfo)) { echo "Profil de : " 
         , $userinfo['username']; } else { echo "Nom d'utilisateur"; }?></div>
@@ -188,5 +166,13 @@ function Sécuritymdp($newpassword,$passwdlength):int
         </form>
       </div>
     </div>
+    <?php 
+    }else {
+      echo "Do you want to create an account?";
+      echo "<form action = '/e-commerce/php/login/connection.php'>
+      <button>REGISTER - LOGIN </button></form>";
+      
+    }
+    ?>
   </body>
 </html>
