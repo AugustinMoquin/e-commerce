@@ -29,6 +29,18 @@ nav {
     font-family: "Montserrat", sans-serif;
 }
 
+footer {
+    display: flex;
+    position: fixed;
+    width: 100vw;
+    bottom:0px;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: teal;
+    font-family: "Montserrat", sans-serif;
+}
+
 .heading {
     color: white;
     text-transform: uppercase;
@@ -117,6 +129,7 @@ nav {
 
 
 
+
 <?php
 
 $url = '';
@@ -144,10 +157,25 @@ if ($url == "" || $url == "home" || $url == "accueil") {
     require "$root/panier/panier_user.php";
 }elseif ($url[0] == "favoris_user") {
     require "$root/favoris/favoris.php";
+}elseif ($url[0] == "modif") {
+    require "$root/login/assets/php/modif.php";
+}elseif ($url[0] == "delete_user") {
+    require "$root/admin_panel/delete_user.php";
+}elseif ($url[0] == "delete_product") {
+    require "$root/admin_panel/delete_product.php";
 }else {
     require "$root/accueil/accueil.php";
 }
+
+
 ?>
+
+<footer>
+    <p>©2023 KERMIT & CI</p>
+    <a href="/e-commerce/php/contact_us">
+        <p>Nous contacter</p>
+    </a>
+</footer>
 
     
 

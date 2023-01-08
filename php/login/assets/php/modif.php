@@ -63,7 +63,7 @@
 
             }
           }
-          header("Location: profil.php?id=".$getid);
+          header("Location: /e-commerce/php/compte");
           setcookie( 'mail', $userinfo['email'], time()+3600*24, '/', '', true, true);
           setcookie( 'pays', $userinfo['pays'], time()+3600*24, '/', '', true, true);
     }
@@ -95,61 +95,58 @@ function Sécuritymdp($newpassword,$passwdlength):int
     
     return $final;
 }
-
 ?>
 
+
+
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Profil</title>
-    <link rel="stylesheet" href="/e-commerce/php/login/assets/profilstyle.css">
-  </head>
-  <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
 
-  <?php 
-    if (isset($_COOKIE['id']) > 0) {
-  ?>
-  <div class="profil">
-
-  <div class="wrapper">
-		<div class="wrapper-inner">
-			<div class="box-wrapper">
-				<div class="box">
-					<div class="avatar">
-						<img src="../php/images/pepe-chef.png">
-					</div>
-					<div class="box-inner">
-						<h3 class="name"><?php if (isset($userinfo)) { echo $userinfo['username'];}?></h3>
-						<h4 class="occupation"><?php if (isset($userinfo)) 
-            { echo $userinfo['email']; } else { echo ""; }?></h4>
-						<p class="location"><i class="fa fa-map-marker"></i>
-            <?php if ($userinfo['ville'] != "") { echo $userinfo['ville']; } else { echo "none"; }?>
-            , <?php if ($userinfo['pays'] != "") { echo $userinfo['pays']; } else { echo "none"; }  ?></p>
-						<div class="button">
-              <div class="déco">
-              <form method = "post" action = "/e-commerce/php/login/assets/php/deconnexion.php">
-                <input class='button -regular center'  type="submit" value="deconnexion">
-              </form>
-              </div>
-              <div class="modif">
-              <form method = "post" action = "/e-commerce/php/modif">
-                <input class='button -dark center'  type="submit" value="modifier">
-              </form>
-              </div>
+    <div class="profil__avatar"></div>
+      <div class="profil__nom"><?php if (isset($userinfo)) { echo "Profil de : " 
+        , $userinfo['username']; } else { echo "Nom d'utilisateur"; }?></div>
+        <div class="profil__information">
+          <form  class="input-group"  method="POST">
+            <div class="profil__info__item profil__info__item--email">
+              <label for="email">Email:</label>
+              <input type="email" name="email" value="<?php if (isset($userinfo)) 
+              { echo $userinfo['email']; } else { echo ""; }?>">
             </div>
-						
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-    <?php 
-    }else {
-      echo "Do you want to create an account?";
-      echo "<form action = '/e-commerce/php/login/connection.php'>
-      <button>REGISTER - LOGIN </button></form>";
-      
-    }
-    ?>
-  </body>
+            <div class="profil__info__item profil__info__item--ville">
+              <label for="ville">Ville:</label>
+              <input type="text" name="ville" id="ville" 
+              value="<?php if (isset($userinfo)) { echo $userinfo['ville']; } else { echo ""; } ?>">
+            </div>
+            <div class="profil__info__item profil__info__item--pays">
+              <label for="pays">Pays:</label>
+              <input type="text" name="pays" id="pays" 
+              value="<?php if (isset($userinfo)) { echo $userinfo['pays']; } else { echo ""; }  ?>">
+            </div>
+            <div class="profil__info__item profil__info__item--submit">
+            </div>
+              <div class="profil__info__item profil__info__item--newpassword">
+                  <label for="newpassword">Nouveau mot de passe:</label>
+                  <input type="password" name="newpassword" id="newpassword">
+                </div>
+                <div class="profil__info__item profil__info__item--confirmpassword">
+                  <label for="confirmpassword">Confirmer le nouveau mot de passe:</label>
+                  <input type="password" name="confirmpassword" id="confirmpassword">
+                </div>
+                <input type="submit" name="update-profil" value="Mettre à jour">
+              </div>
+  
+          </form>
+        </div>
+
+
+
+</body>
 </html>

@@ -43,7 +43,8 @@
                     
                     <form action='/e-commerce/php/favoris/ajout_favoris.php' method='post' >
                         <input type='hidden' name='id_produit' value='<?php echo $userinfo['Id'] ?>'>
-                        <input type='submit' class='add-to-favorite' placeholder='Ajouter aux favoris' class="fav">
+                        <button type='submit' class='add-to-favorite' 
+                        placeholder='Ajouter aux favoris' class="fav">Wishlist</button>
                     </form>
 
                 <div class="product-description">Description :

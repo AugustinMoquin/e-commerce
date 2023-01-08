@@ -1,8 +1,8 @@
 <?php
-include("../db_connection.php");
+include("db_connection.php");
 $conn = openCon();
 
-$IdProduct = $_GET["id"];
+$IdProduct = $_POST["id"];
 echo $IdProduct;
 
 $sql = "DELETE FROM products WHERE Id = $IdProduct;";
@@ -16,7 +16,7 @@ if ($conn->query($sql) === true) {
 
 $conn->close();
 
-header('Location: http://localhost:8080/e-commerce/php/admin_panel/admin_panel.php');
+header('Location: /e-commerce/php/panneau_admin');
 
 
 

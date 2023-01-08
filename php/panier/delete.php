@@ -16,6 +16,6 @@ if ($conn->query($sql) === true) {
 
 $conn->close();
 
-header('Location: http://localhost:8080/e-commerce/php/panier_user');
+header('Location: /e-commerce/php/panier_user');
 
 ?>

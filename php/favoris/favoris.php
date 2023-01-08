@@ -10,6 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../php/favoris/assets/favoris.css">
     <title>PANIER</title>
 </head>
 <body>
@@ -41,19 +42,24 @@
 
 
                     for ($j = 0; $j < $res->rowCount(); $j++) {
-                        echo  "<a class='ind_products' 
-                        href='/e-commerce/php/produit/". $row["Id"]."'>
-                        <div class='ind_products' name='". $row["Id"]."'>  
-                        <img class='img' src='../php". $row["images_path"]."'>
-                        <div class='info'> Nom: " . $row["NAME"]. "<br> </div>
-                        <div class='info'> Price: " . $row["regular_price"]. " <br> </div>
-                        <div class='info'> discount: " . $row["discount_price"]. "<br>  </div>
-                        </div> 
-                        </a>
-                        <form action='/e-commerce/php/favoris/delete.php' method='get'>
-                        <input type='hidden' name='id' value=" . $id_prod_panier . ">
-                        <button type='submit'>Supprimer</button>
-                        </form>";
+                        echo  "
+                                <div class='ind_products' name='". $row["Id"]."'> 
+                                    <a class='ind_product' 
+                                        href='/e-commerce/php/produit/". $row["Id"]."'>
+                                        <div class='image'>
+                                            <img class='img' src='../php". $row["images_path"]."'>
+                                        </div> 
+                                        <div class='prod_info'>
+                                            <div class='info'> Nom: " . $row["NAME"]. "<br> </div>
+                                            <div class='info'> Price: " . $row["regular_price"]. " <br> </div>
+                                            <div class='info'> discount: " . $row["discount_price"]. "<br>  </div>
+                                        </div>
+                                    </a>
+                                    <form action='/e-commerce/php/panier/delete.php' method='get'>
+                                        <input type='hidden' name='id' value=" . $id_prod_panier . ">
+                                        <button type='submit'>Supprimer</button>
+                                    </form>
+                                </div> ";
                     }
                     
                 }

@@ -29,7 +29,7 @@ $AllUser = mysqli_query($conn, $Users);
     <h2> All Product :</h2>
     <?php
 
-    echo "<form method='post' action='../ajout_produit/ajout_produit.php'> 
+    echo "<form method='post' action='/e-commerce/php/ajout_de_produit/'> 
           <button type='submit'>Create a new product</button>
           </form>";
     if (mysqli_num_rows($result) > 0) {
@@ -42,11 +42,11 @@ $AllUser = mysqli_query($conn, $Users);
         $limitedName = wordwrap($row["NAME"], 40, "<br>", true);
 
         echo "<tr><td> 
-        <form action='delete_product.php' method='get'>
+        <form action='/e-commerce/php/delete_product' method='POST'>
           <input type='hidden' name='id' value=" . $row["Id"] . "> <button type='submit'>Supprimer</button>
           </form>";
 
-        echo "<a href = 'http:8080//localhost/e-commerce/php/product_page/produit.php?&id=" . $row["Id"] . "'> "
+        echo "<a href = '/e-commerce/php/produit/" . $row["Id"] . "'> "
           . $row["Id"] . "</td><td>" . $limitedName . "";
 
 
@@ -68,7 +68,7 @@ $AllUser = mysqli_query($conn, $Users);
     <h2> All Users : </h2>
     <?php
     echo "
-    <form method='post' action='../login/connection.php'>  <button type='submit'>Create a new User</button>
+    <form method='post' action='/e-commerce/php/register-login'>  <button type='submit'>Create a new User</button>
     </form>";
     
     
@@ -83,7 +83,7 @@ $AllUser = mysqli_query($conn, $Users);
         <div class='info'> inserted at: " . $row["inserted_at"] . "<br>  </div>
         <div class='info'> last upadte: " . $row["updated_at"] . "<br> </div>
 
-        <form action='delete_user.php' method='get'>
+        <form action='/e-commerce/php/delete_user' method='post'>
         <input type='hidden'
         name='id' value=" . $row["Id"] . "> <button type='submit'>Supprimer</button>
         </form>

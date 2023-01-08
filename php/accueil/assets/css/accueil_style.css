@@ -2,6 +2,7 @@ body {
     font-family: "Open Sans", Arial, Helvetica, sans-serif;
     font-size: 14px;
     margin: 0px;
+    background-image: url(../../../ajout_produit/assets/ajout_produit_images/pepe.jpg);
 }
 
 .products {
@@ -21,42 +22,6 @@ body {
 .ind_products {
     width: 10rem;
     height: 13rem;
-}
-
-.heading {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-}
-
-* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
-
-.body-text {
-    display: flex;
-    font-family: "Montserrat", sans-serif;
-    align-items: center;
-    justify-content: center;
-    margin-top: 250px;
-}
-
-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 8vh;
-    background-color: teal;
-    font-family: "Montserrat", sans-serif;
-}
-
-.heading {
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    font-size: 20px;
 }
 
 .nav-links {

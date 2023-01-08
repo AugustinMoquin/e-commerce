@@ -9,7 +9,7 @@
 <body>
     <?php
     echo "erreur 404";
-    header("http://localhost:8080/e-commerce/php/")
+    header("/e-commerce/php/")
     ?>
 </body>
 </html>

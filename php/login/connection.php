@@ -20,11 +20,6 @@ require ("registertest.php");
                 <button type="button" class="toggle-btn" onclick="login()">Log In</button>
                 <button type="button" class="toggle-btn" onclick="register()">Register</button>
             </div>
-            <div class="social-icons">
-                <img src="/cli/assets/img/fb.png"  alt="img">
-                <img src="/cli/assets/img/gp.png" alt="img">
-                <img src="/cli/assets/img/tw.png" alt="img">
-            </div>
             <form id="login" class="input-group"  method="POST" >
                 <input type="text" class="input-field" placeholder="User Id" name="username" required>
                 <input type="password" class="input-field" placeholder="Enter Password" name="passwd" required>

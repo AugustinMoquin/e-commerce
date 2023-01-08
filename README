@@ -1,4 +1,5 @@
 TO DO :
+-routage(FAIT)
 -product page (FAIT)
 -page admin (FAIT)
 -contact page (FAIT)
@@ -6,15 +7,17 @@ TO DO :
 -modify user account (FAIT)
 -Whishlist (FAIT)
 -Login and register (FAIT)
--connection en tant que admin ou utilisateur
+-connection en tant que admin ou utilisateur (FAIT)
 -reparer ajout produit (FAIT)
+-COOKIES(FAIT)
 -reparer page profile (FAIT)
 -panier (FAIT)
 -historique des commandes (EN COURS)
--redesign (EN COURS)
--categories et filtres
+-redesign (FAIT)
+-categories et filtres (PAS GRAVE)
 -favoris (FAIT)
 
+Si un mentors passent par là, la fonctionnalité pour passer commande n'est pas encore ajoutée 
 
 comte admin:
 user:admin
@@ -23,3 +26,4 @@ psw:Admin123!
 compte utilisateur:
 user: titorr
 psw: Test123!
+
